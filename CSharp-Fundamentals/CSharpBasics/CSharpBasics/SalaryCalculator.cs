@@ -20,11 +20,16 @@
 
             decimal remaining = totalIncome - expenses;
 
+            decimal yearlyIncome = totalIncome * 12;
+
+            decimal dailyBudget = remaining / 30;
 
             Console.WriteLine();
 
             Console.WriteLine($"Total Income: {totalIncome}");
             Console.WriteLine($"Remaining Amount: {remaining}");
+            Console.WriteLine($"Yearly Income: {yearlyIncome}");
+            Console.WriteLine($"Daily Budget: {dailyBudget}");
         }
     }
 }
