@@ -35,7 +35,11 @@ Completed:
 
 ---
 
-## Month 1 - .NET Foundation
+# Month 1 - .NET Foundation
+
+## Week 1 - C# Professional Foundation
+
+---
 
 ### Day 1 - C# Fundamentals ✅
 
@@ -101,56 +105,216 @@ Built:
 - User Management Practice
 - Banking Service Layer
 
+Practiced:
+
+- Object creation
+- Business rules
+- Data protection
+- Method overriding
+- Interface implementation
+- Separation of responsibilities
+
+---
+
+### Day 5 - Collections & LINQ ✅
+
+Learned:
+
+- Collections
+- List<T>
+- LINQ Any()
+- LINQ FirstOrDefault()
+- foreach iteration
+- Object relationships
+
+Built:
+
+- Appointment System V1
+
+Implemented:
+
+- Customer Model
+- Service Model
+- Appointment Model
+- Interface Layer
+- Appointment Service Layer
+
+Features:
+
+- Create appointments
+- View appointments
+- Cancel appointments
+- Prevent duplicate bookings
+- Prevent past date bookings
+- Appointment status management
+
+Practiced:
+
+- Working with collections
+- Searching data using LINQ
+- Service-based architecture
+- Business validation
+- Debugging DateTime comparison issues
+
 ---
 
 # 🔥 Current Focus
 
 Advanced C#:
 
-- Collections
-- LINQ
 - Exception Handling
+- Custom Exceptions
 - File Handling
-- JSON
+- JSON Storage
 
 ---
 
 # 🏗 Upcoming Roadmap
 
-### Backend
+## Advanced C#
 
-- SQL Server
+Upcoming:
+
+- Exception Handling
+- Custom Exceptions
+- File Handling
+- JSON Serialization
+- JSON Deserialization
+
+---
+
+## Database Development
+
+Upcoming:
+
+- SQL Server Fundamentals
+- Tables
+- Primary Keys
+- Foreign Keys
+- Relationships
+- Joins
+- Transactions
 - Entity Framework Core
-- ASP.NET Core Web API
-- Authentication
-- JWT
+- Migrations
 
-### Frontend
+---
+
+## Backend Development
+
+Upcoming:
+
+- ASP.NET Core Web API
+- Controllers
+- Services
+- DTOs
+- Dependency Injection
+- Authentication
+- JWT Authorization
+
+---
+
+## Frontend Development
+
+Upcoming:
 
 - React
 - TypeScript
 - API Integration
+- UI Development
 
-### Professional Skills
+---
+
+## Professional Development
+
+Upcoming:
 
 - Git Branch Workflow
 - Pull Requests
+- Code Reviews
 - Unit Testing
 - Docker
-- Azure
-- CI/CD
+- Azure Deployment
+- CI/CD Pipelines
 
 ---
 
 # 🚀 Portfolio Goals
 
-Planned:
+Planned Portfolio Projects:
 
-1. Hotel Management System Modernization
+## 1. Hotel Management System Modernization
 
-2. Expense & Budget Manager SaaS
+Legacy application improvement:
 
-3. Appointment Booking Platform
+Current:
+
+- C# Windows Forms
+- SQL Server
+- CRUD Operations
+
+Modernization:
+
+- Better Architecture
+- Entity Framework Core
+- Service Layer
+- Clean Structure
+
+---
+
+## 2. Expense & Budget Manager SaaS
+
+Full-stack finance application.
+
+Stack:
+
+- ASP.NET Core Web API
+- EF Core
+- SQL Server
+- React
+- TypeScript
+
+---
+
+## 3. Appointment Booking Platform
+
+Business scheduling application.
+
+Stack:
+
+- ASP.NET Core Web API
+- EF Core
+- SQL Server
+- React
+- TypeScript
+
+---
+
+# 📈 Current Progress
+
+```text
+Phase 0 Setup              ✅
+
+C# Fundamentals            ✅
+
+Control Flow               ✅
+
+Object-Oriented Programming ✅
+
+Collections + LINQ Basics  ✅
+
+
+Next:
+
+Exception Handling
+        ↓
+File + JSON
+        ↓
+SQL Server
+        ↓
+Entity Framework Core
+        ↓
+ASP.NET Core Web API
+```
 
 ---
 
