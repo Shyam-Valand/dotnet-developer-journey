@@ -41,7 +41,7 @@ Completed:
 
 ---
 
-### Day 1 - C# Fundamentals ✅
+## Day 1 - C# Fundamentals ✅
 
 Learned:
 
@@ -63,7 +63,7 @@ Built:
 
 ---
 
-### Day 2 - Control Flow ✅
+## Day 2 - Control Flow ✅
 
 Learned:
 
@@ -84,7 +84,7 @@ Built:
 
 ---
 
-### Day 3 & 4 - Object-Oriented Programming ✅
+## Day 3 & 4 - Object-Oriented Programming ✅
 
 Learned:
 
@@ -116,7 +116,7 @@ Practiced:
 
 ---
 
-### Day 5 - Collections & LINQ ✅
+## Day 5 - Collections & LINQ ✅
 
 Learned:
 
@@ -158,40 +158,68 @@ Practiced:
 
 ---
 
-# 🔥 Current Focus
+## Day 6 - Exception Handling & JSON Storage ✅
 
-Advanced C#:
-
-- Exception Handling
-- Custom Exceptions
-- File Handling
-- JSON Storage
-
----
-
-# 🏗 Upcoming Roadmap
-
-## Advanced C#
-
-Upcoming:
+Learned:
 
 - Exception Handling
+- try/catch
+- throw
 - Custom Exceptions
 - File Handling
 - JSON Serialization
 - JSON Deserialization
 
+Built:
+
+- Appointment System V2
+
+Implemented:
+
+- SlotAlreadyBookedException
+- PastAppointmentException
+- JSON Storage Layer
+- Save appointments to JSON file
+- Load appointments from JSON file
+- Persistent appointment data
+
+Practiced:
+
+- Handling application errors
+- Creating custom business exceptions
+- Separating storage logic
+- Reading and writing files
+- Working with JSON data
+
 ---
+
+# 🔥 Current Focus
+
+Database Development:
+
+- SQL Server Fundamentals
+- Database Design
+- Tables
+- Relationships
+- Queries
+- Entity Framework Core
+
+---
+
+# 🏗 Upcoming Roadmap
 
 ## Database Development
 
 Upcoming:
 
 - SQL Server Fundamentals
+- Database Creation
 - Tables
 - Primary Keys
 - Foreign Keys
 - Relationships
+- SELECT Queries
+- INSERT / UPDATE / DELETE
 - Joins
 - Transactions
 - Entity Framework Core
@@ -205,9 +233,11 @@ Upcoming:
 
 - ASP.NET Core Web API
 - Controllers
+- Routing
 - Services
 - DTOs
 - Dependency Injection
+- Validation
 - Authentication
 - JWT Authorization
 
@@ -220,6 +250,7 @@ Upcoming:
 - React
 - TypeScript
 - API Integration
+- State Management
 - UI Development
 
 ---
@@ -242,9 +273,11 @@ Upcoming:
 
 Planned Portfolio Projects:
 
+---
+
 ## 1. Hotel Management System Modernization
 
-Legacy application improvement:
+Legacy application improvement.
 
 Current:
 
@@ -258,20 +291,28 @@ Modernization:
 - Entity Framework Core
 - Service Layer
 - Clean Structure
+- Improved Validation
 
 ---
 
 ## 2. Expense & Budget Manager SaaS
 
-Full-stack finance application.
+Full-stack finance management application.
 
 Stack:
 
 - ASP.NET Core Web API
-- EF Core
+- Entity Framework Core
 - SQL Server
 - React
 - TypeScript
+
+Focus:
+
+- Authentication
+- CRUD Operations
+- Dashboard
+- Reports
 
 ---
 
@@ -282,38 +323,52 @@ Business scheduling application.
 Stack:
 
 - ASP.NET Core Web API
-- EF Core
+- Entity Framework Core
 - SQL Server
 - React
 - TypeScript
+
+Focus:
+
+- Users
+- Services
+- Availability
+- Booking Workflow
+- Business Rules
 
 ---
 
 # 📈 Current Progress
 
 ```text
-Phase 0 Setup              ✅
+Phase 0 Setup                 ✅
 
-C# Fundamentals            ✅
+C# Fundamentals               ✅
 
-Control Flow               ✅
+Control Flow                  ✅
 
-Object-Oriented Programming ✅
+Object-Oriented Programming   ✅
 
-Collections + LINQ Basics  ✅
+Advanced OOP                  ✅
+
+Collections + LINQ Basics     ✅
+
+Exception Handling            ✅
+
+File + JSON Storage           ✅
 
 
 Next:
 
-Exception Handling
-        ↓
-File + JSON
-        ↓
 SQL Server
         ↓
 Entity Framework Core
         ↓
 ASP.NET Core Web API
+        ↓
+React Frontend
+        ↓
+Cloud + DevOps
 ```
 
 ---

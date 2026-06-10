@@ -1,38 +1,36 @@
 ﻿using AppointmentSystem.Interfaces;
 using AppointmentSystem.Models;
+using AppointmentSystem.Exceptions;
 
 namespace AppointmentSystem.Services;
 
 public class AppointmentService : IAppointmentService
 {
-    private List<Appointment> appointments = new List<Appointment>();
+    public List<Appointment> Appointments { get; set; } = new List<Appointment>();
 
     public void CreateAppointment(Appointment appointment)
     {
         if (appointment.AppointmentDate < DateTime.Now)
         {
-            Console.WriteLine("Cannot book past appointments");
-
-            return;
+            throw new PastAppointmentException();
         }
 
-        bool alreadyBooked = appointments.Any( x => x.AppointmentDate.Date == appointment.AppointmentDate.Date && 
+        bool alreadyBooked = Appointments.Any( x => x.AppointmentDate.Date == appointment.AppointmentDate.Date && 
         x.AppointmentDate.Hour == appointment.AppointmentDate.Hour && 
         x.AppointmentDate.Minute == appointment.AppointmentDate.Minute);
 
         if (alreadyBooked)
         {
-            Console.WriteLine("Time slot already booked");
-
-            return;
+            throw new SlotAlreadyBookedException();
         }
-        appointments.Add(appointment);
+
+        Appointments.Add(appointment);
         Console.WriteLine("Appointment Created Successfully");
     }
 
     public void CancelAppointment(int id)
     {
-        Appointment? appointment = appointments.FirstOrDefault(x => x.Id == id);
+        Appointment? appointment = Appointments.FirstOrDefault(x => x.Id == id);
         if (appointment == null)
         {
             Console.WriteLine("Appointment not found");
@@ -44,7 +42,7 @@ public class AppointmentService : IAppointmentService
 
     public void ShowAppointments()
     {
-        foreach (Appointment appointment in appointments)
+        foreach (Appointment appointment in Appointments)
         {
             Console.WriteLine($"Customer: {appointment.Customer.Name}");
             Console.WriteLine($"Service: {appointment.Service.Name}");
