@@ -1,15 +1,19 @@
 # .NET Developer Journey 🚀
 
-A daily learning journey focused on becoming a Junior Full-Stack .NET Developer.
+My daily learning journey towards becoming a Junior Full-Stack .NET Developer.
+
+---
 
 ## 🎯 Target Role
 
 Junior Full-Stack .NET Developer
 
+---
+
 ## 🛠 Target Stack
 
-- C#
-- ASP.NET Core Web API (.NET 8)
+- C# / .NET 8
+- ASP.NET Core Web API
 - Entity Framework Core
 - SQL Server
 - React + TypeScript
@@ -20,40 +24,33 @@ Junior Full-Stack .NET Developer
 
 ---
 
-# 📚 Progress
+# 📚 Learning Progress
 
 ## Phase 0 - Setup ✅
 
 Completed:
 
-- Visual Studio
-- VS Code
+- Development environment setup
+- Visual Studio / VS Code
 - SQL Server Management Studio
 - Postman
-- Git & GitHub setup
-- Developer workspace setup
+- Git & GitHub workflow
 
 ---
 
 # Month 1 - .NET Foundation
 
-## Week 1 - C# Professional Foundation
+## Week 1 - C# Professional Foundation ✅
 
----
-
-## Day 1 - C# Fundamentals ✅
+### Day 1 - C# Fundamentals ✅
 
 Learned:
 
 - Project structure
-- Program.cs
-- Namespaces
-- Classes
+- Variables & Data Types
 - Methods
-- Variables
-- Data types
-- Nullable basics
-- Console input/output
+- Classes
+- Console Applications
 
 Built:
 
@@ -63,285 +60,169 @@ Built:
 
 ---
 
-## Day 2 - Control Flow ✅
+### Day 2 - Control Flow ✅
 
 Learned:
 
 - if / else
-- switch statements
+- switch
 - Operators
-- for loop
-- while loop
-- foreach basics
+- Loops
 
 Built:
 
 - Grade Calculator
 - Login System
 - Calculator
-- Number Practice
-- Ticket Booking System
+- Ticket Booking Practice
 
 ---
 
-## Day 3 & 4 - Object-Oriented Programming ✅
+### Day 3 & 4 - Object-Oriented Programming ✅
 
 Learned:
 
-- Classes
-- Objects
-- Properties
+- Classes & Objects
 - Constructors
 - Encapsulation
 - Inheritance
 - Polymorphism
 - Interfaces
-- Service Layer basics
+- Service Layer
 
 Built:
 
-- Customer Model Practice
 - Banking System
 - User Management Practice
-- Banking Service Layer
-
-Practiced:
-
-- Object creation
-- Business rules
-- Data protection
-- Method overriding
-- Interface implementation
-- Separation of responsibilities
 
 ---
 
-## Day 5 - Collections & LINQ ✅
+### Day 5 - Collections & LINQ ✅
 
 Learned:
 
-- Collections
 - List<T>
-- LINQ Any()
-- LINQ FirstOrDefault()
-- foreach iteration
-- Object relationships
+- Collections
+- LINQ
+  - Any()
+  - FirstOrDefault()
+  - Max()
 
 Built:
 
-- Appointment System V1
+### Appointment System V1
 
 Implemented:
 
-- Customer Model
-- Service Model
-- Appointment Model
-- Interface Layer
-- Appointment Service Layer
-
-Features:
-
-- Create appointments
-- View appointments
-- Cancel appointments
-- Prevent duplicate bookings
-- Prevent past date bookings
-- Appointment status management
-
-Practiced:
-
-- Working with collections
-- Searching data using LINQ
-- Service-based architecture
+- Models
+- Interfaces
+- Services
 - Business validation
-- Debugging DateTime comparison issues
+- Appointment management logic
 
 ---
 
-## Day 6 - Exception Handling & JSON Storage ✅
+### Day 6 - Exceptions & JSON Storage ✅
 
 Learned:
 
 - Exception Handling
-- try/catch
-- throw
 - Custom Exceptions
 - File Handling
-- JSON Serialization
-- JSON Deserialization
+- JSON Serialization / Deserialization
 
 Built:
 
-- Appointment System V2
+### Appointment System V2
 
 Implemented:
 
-- SlotAlreadyBookedException
-- PastAppointmentException
+- Business Exceptions
 - JSON Storage Layer
-- Save appointments to JSON file
-- Load appointments from JSON file
-- Persistent appointment data
+- Save / Load functionality
+- Persistent data storage
 
-Practiced:
+---
 
-- Handling application errors
-- Creating custom business exceptions
-- Separating storage logic
-- Reading and writing files
-- Working with JSON data
+### Day 7 - Final Console Project ✅
+
+Built:
+
+## Appointment Management System
+
+Features:
+
+- Menu Driven Console App
+- Create Appointments
+- View Appointments
+- Search Appointments
+- Cancel Appointments
+- JSON Persistence
+
+Business Rules:
+
+- Prevent past bookings
+- Prevent duplicate active slots
+- Reuse cancelled slots
+- Auto increment IDs
+- Date & Time slot handling
+
+Tested:
+
+- Create workflow ✅
+- Search workflow ✅
+- Cancel workflow ✅
+- Validation rules ✅
+- JSON save/load ✅
 
 ---
 
 # 🔥 Current Focus
 
-Database Development:
+## SQL Server + Database Development
 
-- SQL Server Fundamentals
+Learning:
+
 - Database Design
-- Tables
-- Relationships
-- Queries
-- Entity Framework Core
-
----
-
-# 🏗 Upcoming Roadmap
-
-## Database Development
-
-Upcoming:
-
-- SQL Server Fundamentals
-- Database Creation
 - Tables
 - Primary Keys
 - Foreign Keys
 - Relationships
-- SELECT Queries
-- INSERT / UPDATE / DELETE
+- Queries
 - Joins
-- Transactions
 - Entity Framework Core
-- Migrations
 
 ---
 
-## Backend Development
+# 🏗 Upcoming
 
-Upcoming:
+## Backend
 
 - ASP.NET Core Web API
-- Controllers
-- Routing
-- Services
 - DTOs
 - Dependency Injection
-- Validation
 - Authentication
 - JWT Authorization
 
----
-
-## Frontend Development
-
-Upcoming:
+## Frontend
 
 - React
 - TypeScript
 - API Integration
-- State Management
-- UI Development
 
----
+## DevOps
 
-## Professional Development
-
-Upcoming:
-
-- Git Branch Workflow
-- Pull Requests
-- Code Reviews
-- Unit Testing
+- Testing
 - Docker
-- Azure Deployment
-- CI/CD Pipelines
+- Azure
+- CI/CD
 
 ---
 
-# 🚀 Portfolio Goals
-
-Planned Portfolio Projects:
-
----
-
-## 1. Hotel Management System Modernization
-
-Legacy application improvement.
-
-Current:
-
-- C# Windows Forms
-- SQL Server
-- CRUD Operations
-
-Modernization:
-
-- Better Architecture
-- Entity Framework Core
-- Service Layer
-- Clean Structure
-- Improved Validation
-
----
-
-## 2. Expense & Budget Manager SaaS
-
-Full-stack finance management application.
-
-Stack:
-
-- ASP.NET Core Web API
-- Entity Framework Core
-- SQL Server
-- React
-- TypeScript
-
-Focus:
-
-- Authentication
-- CRUD Operations
-- Dashboard
-- Reports
-
----
-
-## 3. Appointment Booking Platform
-
-Business scheduling application.
-
-Stack:
-
-- ASP.NET Core Web API
-- Entity Framework Core
-- SQL Server
-- React
-- TypeScript
-
-Focus:
-
-- Users
-- Services
-- Availability
-- Booking Workflow
-- Business Rules
-
----
-
-# 📈 Current Progress
+# 📈 Roadmap Progress
 
 ```text
-Phase 0 Setup                 ✅
+Setup                         ✅
 
 C# Fundamentals               ✅
 
@@ -349,32 +230,32 @@ Control Flow                  ✅
 
 Object-Oriented Programming   ✅
 
-Advanced OOP                  ✅
-
-Collections + LINQ Basics     ✅
+Collections + LINQ            ✅
 
 Exception Handling            ✅
 
 File + JSON Storage           ✅
 
+Final Console Project         ✅
+
 
 Next:
 
 SQL Server
-        ↓
+     ↓
 Entity Framework Core
-        ↓
+     ↓
 ASP.NET Core Web API
-        ↓
+     ↓
 React Frontend
-        ↓
-Cloud + DevOps
+     ↓
+Azure + DevOps
 ```
 
 ---
 
 ```text
-Learn → Build → Commit → Improve
+Learn → Build → Test → Commit → Improve
 ```
 
 Improving one commit at a time 🚀
