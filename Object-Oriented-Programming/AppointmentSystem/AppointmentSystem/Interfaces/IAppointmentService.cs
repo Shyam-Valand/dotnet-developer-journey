@@ -9,4 +9,6 @@ public interface IAppointmentService
     void CancelAppointment(int id);
 
     void ShowAppointments();
+
+    Appointment? SearchAppointment(int id);
 }
