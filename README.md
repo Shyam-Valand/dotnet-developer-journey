@@ -2,13 +2,9 @@
 
 My daily learning journey towards becoming a Junior Full-Stack .NET Developer.
 
----
-
 ## 🎯 Target Role
 
 Junior Full-Stack .NET Developer
-
----
 
 ## 🛠 Target Stack
 
@@ -26,7 +22,7 @@ Junior Full-Stack .NET Developer
 
 # 📚 Learning Progress
 
-## Phase 0 - Setup ✅
+# Phase 0 - Developer Setup ✅
 
 Completed:
 
@@ -38,15 +34,15 @@ Completed:
 
 ---
 
-# Month 1 - .NET Foundation
+# Phase 1 - .NET Foundation (Month 1) 🚀
 
 ## Week 1 - C# Professional Foundation ✅
 
-### Day 1 - C# Fundamentals ✅
+## Day 1 - C# Fundamentals ✅
 
 Learned:
 
-- Project structure
+- Project Structure
 - Variables & Data Types
 - Methods
 - Classes
@@ -58,9 +54,7 @@ Built:
 - User Registration
 - Salary Calculator
 
----
-
-### Day 2 - Control Flow ✅
+## Day 2 - Control Flow ✅
 
 Learned:
 
@@ -76,9 +70,7 @@ Built:
 - Calculator
 - Ticket Booking Practice
 
----
-
-### Day 3 & 4 - Object-Oriented Programming ✅
+## Day 3 & 4 - Object-Oriented Programming ✅
 
 Learned:
 
@@ -95,18 +87,13 @@ Built:
 - Banking System
 - User Management Practice
 
----
-
-### Day 5 - Collections & LINQ ✅
+## Day 5 - Collections & LINQ ✅
 
 Learned:
 
-- List<T>
 - Collections
-- LINQ
-  - Any()
-  - FirstOrDefault()
-  - Max()
+- List<T>
+- LINQ Methods
 
 Built:
 
@@ -117,19 +104,17 @@ Implemented:
 - Models
 - Interfaces
 - Services
-- Business validation
-- Appointment management logic
+- Business Validation
+- Appointment Logic
 
----
-
-### Day 6 - Exceptions & JSON Storage ✅
+## Day 6 - Exceptions & JSON Storage ✅
 
 Learned:
 
 - Exception Handling
 - Custom Exceptions
 - File Handling
-- JSON Serialization / Deserialization
+- JSON Serialization
 
 Built:
 
@@ -138,121 +123,141 @@ Built:
 Implemented:
 
 - Business Exceptions
-- JSON Storage Layer
-- Save / Load functionality
-- Persistent data storage
+- JSON Storage
+- Save / Load Functionality
 
----
-
-### Day 7 - Final Console Project ✅
+## Day 7 - Final Console Project ✅
 
 Built:
 
-## Appointment Management System
+### Appointment Management System
 
-Features:
+Implemented:
 
-- Menu Driven Console App
-- Create Appointments
-- View Appointments
-- Search Appointments
-- Cancel Appointments
+- Menu Driven Console Application
+- Create / View / Search / Cancel Appointments
 - JSON Persistence
-
-Business Rules:
-
-- Prevent past bookings
-- Prevent duplicate active slots
-- Reuse cancelled slots
-- Auto increment IDs
-- Date & Time slot handling
+- Auto Increment IDs
+- Date & Time Slot Management
+- Business Validations
 
 Tested:
 
-- Create workflow ✅
-- Search workflow ✅
-- Cancel workflow ✅
-- Validation rules ✅
-- JSON save/load ✅
+- Create Workflow ✅
+- Search Workflow ✅
+- Cancel Workflow ✅
+- Validation Rules ✅
+- JSON Persistence ✅
+
+---
+
+## Week 2 - SQL Server & Database Development 🚀
+
+## Day 8 - SQL Server Fundamentals ✅
+
+Learned:
+
+- Database Design
+- Tables
+- Rows & Columns
+- SQL Data Types
+- Primary Keys
+- Foreign Keys
+- Relationships
+- IDENTITY Auto Increment
+
+Created:
+
+### AppointmentDB
+
+Tables:
+
+- Customers
+- Services
+- Appointments
+
+Practiced:
+
+- CREATE DATABASE
+- CREATE TABLE
+- INSERT Data
+- SELECT Queries
 
 ---
 
 # 🔥 Current Focus
 
-## SQL Server + Database Development
+## SQL Queries & Database Operations
 
 Learning:
 
-- Database Design
-- Tables
-- Primary Keys
-- Foreign Keys
-- Relationships
-- Queries
+- SELECT Queries
+- Filtering Data
+- INSERT / UPDATE / DELETE
+- Sorting
 - Joins
-- Entity Framework Core
+- Relationships
 
 ---
 
-# 🏗 Upcoming
+# 🏗 Upcoming Roadmap
 
-## Backend
+## Phase 1 Continued
 
+- Advanced SQL Queries
+- Entity Framework Core
 - ASP.NET Core Web API
-- DTOs
-- Dependency Injection
 - Authentication
-- JWT Authorization
 
-## Frontend
+## Phase 2 - Full Stack Development
 
 - React
 - TypeScript
 - API Integration
+- Full Stack Projects
 
-## DevOps
+## Phase 3 - Job Ready Development
 
-- Testing
+- Unit Testing
 - Docker
 - Azure
 - CI/CD
+- Deployment
 
 ---
 
 # 📈 Roadmap Progress
 
 ```text
-Setup                         ✅
+Phase 0 - Setup             ✅
 
-C# Fundamentals               ✅
+Phase 1 - .NET Foundation
 
-Control Flow                  ✅
-
-Object-Oriented Programming   ✅
-
-Collections + LINQ            ✅
-
-Exception Handling            ✅
-
-File + JSON Storage           ✅
-
-Final Console Project         ✅
-
+C# Fundamentals             ✅
+Control Flow                ✅
+OOP                         ✅
+Collections + LINQ          ✅
+Exception Handling          ✅
+File + JSON Storage         ✅
+Final Console Project       ✅
+SQL Server Fundamentals     ✅
 
 Next:
 
-SQL Server
-     ↓
+SQL Queries
+      ↓
 Entity Framework Core
-     ↓
+      ↓
 ASP.NET Core Web API
-     ↓
-React Frontend
-     ↓
-Azure + DevOps
-```
 
----
+Phase 2:
+
+React + Full Stack Projects
+
+Phase 3:
+
+Testing + Docker + Azure
+```
 
 ```text
 Learn → Build → Test → Commit → Improve
