@@ -151,7 +151,7 @@ Tested:
 
 ---
 
-## Week 2 - SQL Server & Database Development 🚀
+# Week 2 - SQL Server & Database Development 🚀
 
 ## Day 8 - SQL Server Fundamentals ✅
 
@@ -183,20 +183,46 @@ Practiced:
 - INSERT Data
 - SELECT Queries
 
+## Day 9 - SQL Queries & CRUD Operations ✅
+
+Learned:
+
+- SELECT Queries
+- WHERE Filtering
+- INSERT Operations
+- UPDATE Operations
+- DELETE Operations
+- ORDER BY Sorting
+- INNER JOIN
+
+Practiced:
+
+- Reading Database Records
+- Filtering Data
+- Updating Existing Records
+- Deleting Records Safely
+- Combining Related Tables
+
+Implemented:
+
+- Appointment Search Queries
+- Appointment Status Updates
+- Customer & Service Relationship Queries
+
 ---
 
 # 🔥 Current Focus
 
-## SQL Queries & Database Operations
+## Advanced SQL & Entity Framework Preparation
 
 Learning:
 
-- SELECT Queries
-- Filtering Data
-- INSERT / UPDATE / DELETE
-- Sorting
-- Joins
-- Relationships
+- Aggregate Functions
+- GROUP BY
+- HAVING
+- Constraints
+- Index Basics
+- Entity Framework Core
 
 ---
 
@@ -241,10 +267,11 @@ Exception Handling          ✅
 File + JSON Storage         ✅
 Final Console Project       ✅
 SQL Server Fundamentals     ✅
+SQL Queries + CRUD          ✅
 
 Next:
 
-SQL Queries
+Advanced SQL
       ↓
 Entity Framework Core
       ↓
