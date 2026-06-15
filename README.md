@@ -25,7 +25,6 @@ Junior Full-Stack .NET Developer
 # Phase 0 - Developer Setup ✅
 
 Completed:
-
 - Development environment setup
 - Visual Studio / VS Code
 - SQL Server Management Studio
@@ -41,7 +40,6 @@ Completed:
 ## Day 1 - C# Fundamentals ✅
 
 Learned:
-
 - Project Structure
 - Variables & Data Types
 - Methods
@@ -49,7 +47,6 @@ Learned:
 - Console Applications
 
 Built:
-
 - Student Profile
 - User Registration
 - Salary Calculator
@@ -57,14 +54,12 @@ Built:
 ## Day 2 - Control Flow ✅
 
 Learned:
-
 - if / else
 - switch
 - Operators
 - Loops
 
 Built:
-
 - Grade Calculator
 - Login System
 - Calculator
@@ -73,7 +68,6 @@ Built:
 ## Day 3 & 4 - Object-Oriented Programming ✅
 
 Learned:
-
 - Classes & Objects
 - Constructors
 - Encapsulation
@@ -83,14 +77,12 @@ Learned:
 - Service Layer
 
 Built:
-
 - Banking System
 - User Management Practice
 
 ## Day 5 - Collections & LINQ ✅
 
 Learned:
-
 - Collections
 - List<T>
 - LINQ Methods
@@ -100,7 +92,6 @@ Built:
 ### Appointment System V1
 
 Implemented:
-
 - Models
 - Interfaces
 - Services
@@ -110,7 +101,6 @@ Implemented:
 ## Day 6 - Exceptions & JSON Storage ✅
 
 Learned:
-
 - Exception Handling
 - Custom Exceptions
 - File Handling
@@ -121,7 +111,6 @@ Built:
 ### Appointment System V2
 
 Implemented:
-
 - Business Exceptions
 - JSON Storage
 - Save / Load Functionality
@@ -133,7 +122,6 @@ Built:
 ### Appointment Management System
 
 Implemented:
-
 - Menu Driven Console Application
 - Create / View / Search / Cancel Appointments
 - JSON Persistence
@@ -142,7 +130,6 @@ Implemented:
 - Business Validations
 
 Tested:
-
 - Create Workflow ✅
 - Search Workflow ✅
 - Cancel Workflow ✅
@@ -156,7 +143,6 @@ Tested:
 ## Day 8 - SQL Server Fundamentals ✅
 
 Learned:
-
 - Database Design
 - Tables
 - Rows & Columns
@@ -171,13 +157,11 @@ Created:
 ### AppointmentDB
 
 Tables:
-
 - Customers
 - Services
 - Appointments
 
 Practiced:
-
 - CREATE DATABASE
 - CREATE TABLE
 - INSERT Data
@@ -186,7 +170,6 @@ Practiced:
 ## Day 9 - SQL Queries & CRUD Operations ✅
 
 Learned:
-
 - SELECT Queries
 - WHERE Filtering
 - INSERT Operations
@@ -196,7 +179,6 @@ Learned:
 - INNER JOIN
 
 Practiced:
-
 - Reading Database Records
 - Filtering Data
 - Updating Existing Records
@@ -204,25 +186,50 @@ Practiced:
 - Combining Related Tables
 
 Implemented:
-
 - Appointment Search Queries
 - Appointment Status Updates
 - Customer & Service Relationship Queries
+
+## Day 10 - Advanced SQL & Database Rules ✅
+
+Learned:
+- Database Constraints
+- CHECK Constraints
+- DEFAULT Values
+- ALTER TABLE
+- Aggregate Functions
+- Index Basics
+
+Practiced:
+- COUNT()
+- SUM()
+- AVG()
+- MIN()
+- MAX()
+- GROUP BY
+- HAVING
+
+Implemented:
+- Appointment Status Validation
+- Default Values
+- CreatedAt Tracking
+- Revenue Reports
+- Database Performance Index
 
 ---
 
 # 🔥 Current Focus
 
-## Advanced SQL & Entity Framework Preparation
+## Entity Framework Core Preparation
 
 Learning:
-
-- Aggregate Functions
-- GROUP BY
-- HAVING
-- Constraints
-- Index Basics
-- Entity Framework Core
+- ORM Concepts
+- DbContext
+- DbSet
+- Entity Models
+- Database Connection
+- Migrations
+- LINQ with Database
 
 ---
 
@@ -230,9 +237,9 @@ Learning:
 
 ## Phase 1 Continued
 
-- Advanced SQL Queries
 - Entity Framework Core
 - ASP.NET Core Web API
+- REST APIs
 - Authentication
 
 ## Phase 2 - Full Stack Development
@@ -268,21 +275,20 @@ File + JSON Storage         ✅
 Final Console Project       ✅
 SQL Server Fundamentals     ✅
 SQL Queries + CRUD          ✅
+Advanced SQL                ✅
 
 Next:
 
-Advanced SQL
-      ↓
 Entity Framework Core
       ↓
 ASP.NET Core Web API
+      ↓
+Authentication
 
 Phase 2:
-
 React + Full Stack Projects
 
 Phase 3:
-
 Testing + Docker + Azure
 ```
 
