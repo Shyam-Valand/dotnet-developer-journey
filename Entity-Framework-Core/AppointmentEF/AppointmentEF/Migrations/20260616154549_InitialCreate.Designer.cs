@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppointmentEF.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260616145844_InitialCreate")]
+    [Migration("20260616154549_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

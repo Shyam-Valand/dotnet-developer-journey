@@ -3,11 +3,9 @@
 My daily learning journey towards becoming a Junior Full-Stack .NET Developer.
 
 ## 🎯 Target Role
-
 Junior Full-Stack .NET Developer
 
 ## 🛠 Target Stack
-
 - C# / .NET 8
 - ASP.NET Core Web API
 - Entity Framework Core
@@ -88,7 +86,6 @@ Learned:
 - LINQ Methods
 
 Built:
-
 ### Appointment System V1
 
 Implemented:
@@ -107,7 +104,6 @@ Learned:
 - JSON Serialization
 
 Built:
-
 ### Appointment System V2
 
 Implemented:
@@ -118,7 +114,6 @@ Implemented:
 ## Day 7 - Final Console Project ✅
 
 Built:
-
 ### Appointment Management System
 
 Implemented:
@@ -138,14 +133,13 @@ Tested:
 
 ---
 
-# Week 2 - SQL Server & Database Development 🚀
+# Week 2 - SQL Server & Entity Framework Core 🚀
 
 ## Day 8 - SQL Server Fundamentals ✅
 
 Learned:
 - Database Design
 - Tables
-- Rows & Columns
 - SQL Data Types
 - Primary Keys
 - Foreign Keys
@@ -153,7 +147,6 @@ Learned:
 - IDENTITY Auto Increment
 
 Created:
-
 ### AppointmentDB
 
 Tables:
@@ -172,85 +165,97 @@ Practiced:
 Learned:
 - SELECT Queries
 - WHERE Filtering
-- INSERT Operations
-- UPDATE Operations
-- DELETE Operations
-- ORDER BY Sorting
+- INSERT
+- UPDATE
+- DELETE
+- ORDER BY
 - INNER JOIN
-
-Practiced:
-- Reading Database Records
-- Filtering Data
-- Updating Existing Records
-- Deleting Records Safely
-- Combining Related Tables
 
 Implemented:
 - Appointment Search Queries
 - Appointment Status Updates
-- Customer & Service Relationship Queries
+- Relationship Queries
 
 ## Day 10 - Advanced SQL & Database Rules ✅
 
 Learned:
-- Database Constraints
-- CHECK Constraints
+- Constraints
+- CHECK Rules
 - DEFAULT Values
 - ALTER TABLE
 - Aggregate Functions
-- Index Basics
-
-Practiced:
-- COUNT()
-- SUM()
-- AVG()
-- MIN()
-- MAX()
 - GROUP BY
 - HAVING
+- Index Basics
 
 Implemented:
-- Appointment Status Validation
-- Default Values
+- Data Validation Rules
 - CreatedAt Tracking
 - Revenue Reports
-- Database Performance Index
+- Performance Index
+
+## Day 11 - Entity Framework Core Basics ✅
+
+Learned:
+- ORM Concepts
+- EF Core Setup
+- DbContext
+- DbSet
+- Entity Models
+- Navigation Properties
+- Connection Strings
+- appsettings.json Configuration
+- EF Core Migrations
+
+Built:
+### AppointmentEF
+
+Implemented:
+- Customer Entity
+- Service Entity
+- Appointment Entity
+- Database Context
+- Model Relationships
+- SQL Server Integration
+
+Practiced:
+- Add-Migration
+- Update-Database
+- Automatic Table Creation
+- Insert Data Using EF Core
+- SaveChanges()
+- Database Verification
 
 ---
 
 # 🔥 Current Focus
 
-## Entity Framework Core Preparation
+## Entity Framework Core Development
 
 Learning:
-- ORM Concepts
-- DbContext
-- DbSet
-- Entity Models
-- Database Connection
-- Migrations
-- LINQ with Database
+- EF Core CRUD Operations
+- LINQ Queries
+- Include Relationships
+- Service Layer with EF Core
+- Repository Pattern Basics
 
 ---
 
 # 🏗 Upcoming Roadmap
 
 ## Phase 1 Continued
-
-- Entity Framework Core
+- Advanced Entity Framework Core
 - ASP.NET Core Web API
 - REST APIs
 - Authentication
 
 ## Phase 2 - Full Stack Development
-
 - React
 - TypeScript
 - API Integration
 - Full Stack Projects
 
 ## Phase 3 - Job Ready Development
-
 - Unit Testing
 - Docker
 - Azure
@@ -273,13 +278,20 @@ Collections + LINQ          ✅
 Exception Handling          ✅
 File + JSON Storage         ✅
 Final Console Project       ✅
+
+Database Development
+
 SQL Server Fundamentals     ✅
 SQL Queries + CRUD          ✅
 Advanced SQL                ✅
 
+Entity Framework Core
+
+EF Core Basics              ✅
+
 Next:
 
-Entity Framework Core
+EF Core CRUD Operations
       ↓
 ASP.NET Core Web API
       ↓
