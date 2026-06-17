@@ -226,18 +226,52 @@ Practiced:
 - SaveChanges()
 - Database Verification
 
+## Day 12 - EF Core CRUD & Service Layer ✅
+
+Learned:
+- EF Core CRUD Operations
+- LINQ Database Queries
+- Include Relationships
+- Service Layer Architecture
+- Business Logic Separation
+
+Built:
+### AppointmentEF Service Layer
+
+Implemented:
+- Appointment Service Class
+- Create Appointment
+- View Appointments
+- Find Appointment By ID
+- Cancel Appointment
+- Delete Appointment
+
+Business Rules:
+- Prevent Duplicate Active Bookings
+- Allow Cancelled Slot Reuse
+- Prevent Past Date Bookings
+
+Practiced:
+- Add()
+- Remove()
+- Any()
+- FirstOrDefault()
+- Include()
+- SaveChanges()
+
 ---
 
 # 🔥 Current Focus
 
-## Entity Framework Core Development
+## ASP.NET Core Web API Preparation
 
 Learning:
-- EF Core CRUD Operations
-- LINQ Queries
-- Include Relationships
-- Service Layer with EF Core
-- Repository Pattern Basics
+- Controllers
+- REST Endpoints
+- Dependency Injection
+- DTOs
+- HTTP Methods
+- API Testing with Postman
 
 ---
 
@@ -288,11 +322,10 @@ Advanced SQL                ✅
 Entity Framework Core
 
 EF Core Basics              ✅
+EF Core CRUD + Services     ✅
 
 Next:
 
-EF Core CRUD Operations
-      ↓
 ASP.NET Core Web API
       ↓
 Authentication

@@ -1,35 +1,36 @@
-﻿using AppointmentEF.Data;
-using AppointmentEF.Models;
+﻿using AppointmentEF.Models;
+using AppointmentEF.Services;
 
-using AppDbContext context = new AppDbContext();
+AppointmentService appointmentService = new AppointmentService();
 
-// Create Customer
-Customer customer = new Customer
-{
-    Name = "Shyam",
-    Email = "shyam@test.com",
-    Phone = "7672666567"
-};
-
-// Create Service
-Service service = new Service
-{
-    Name = "Hair Cut",
-    DurationMinutes = 30,
-    Price = 50.00m
-};
-
-// Create Appointment
 Appointment appointment = new Appointment
 {
-    Customer = customer,
-    Service = service,
-    AppointmentDate = new DateTime(2026, 6, 28, 10, 30, 0),
+    CustomerId = 1,
+    ServiceId = 1,
+    AppointmentDate = new DateTime(2026, 7, 1, 15, 30, 0),
     Status = "Booked"
 };
 
-// Save data
-context.Appointments.Add(appointment);
-context.SaveChanges();
+// CREATE
+appointmentService.CreateAppointment(appointment);
 
-Console.WriteLine("Appointment saved successfully");
+// READ ALL
+appointmentService.ShowAppointments();
+
+// FIND BY ID
+var result = appointmentService.GetAppointmentById(1);
+
+if (result != null)
+{
+    Console.WriteLine(
+        $"Found: {result.Customer.Name} - {result.Service.Name}"
+    );
+}
+
+
+// UPDATE TEST
+// appointmentService.CancelAppointment(1);
+
+
+// DELETE TEST
+// appointmentService.DeleteAppointment(1);
