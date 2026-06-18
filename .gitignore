@@ -11,6 +11,9 @@
 *.sln.docstates
 *.env
 
+# ASP.NET Core local configuration
+appsettings.Development.json
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
