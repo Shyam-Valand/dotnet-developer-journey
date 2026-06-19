@@ -19,7 +19,6 @@ Junior Full-Stack .NET Developer
 ## Phase 0 - Developer Setup ✅
 
 Completed:
-
 - Development Environment Setup
 - SQL Server Management Studio
 - Postman
@@ -32,7 +31,7 @@ Completed:
 ## Week 1 - C# Foundation ✅
 
 ### Day 1 - C# Fundamentals ✅
-Learned project structure, variables, data types, methods, and classes.
+Learned C# syntax, project structure, variables, data types, methods, and classes.
 
 Built:
 - Student Profile
@@ -52,7 +51,7 @@ Built:
 ---
 
 ### Day 3 & 4 - Object-Oriented Programming ✅
-Learned classes, objects, constructors, encapsulation, inheritance, polymorphism, interfaces, and service layer concepts.
+Learned OOP principles including encapsulation, inheritance, polymorphism, interfaces, and service layer concepts.
 
 Built:
 - Banking System
@@ -61,23 +60,19 @@ Built:
 ---
 
 ### Day 5 - Collections & LINQ ✅
-
 Learned collections, List<T>, and LINQ queries.
 
 Built:
-
 ### Appointment System V1
 
-Implemented models, interfaces, services, and appointment business logic.
+Implemented models, interfaces, services, and appointment business rules.
 
 ---
 
 ### Day 6 - Exceptions & JSON Storage ✅
-
 Learned exception handling, file handling, and JSON serialization.
 
 Built:
-
 ### Appointment System V2
 
 Implemented custom exceptions and JSON persistence.
@@ -87,7 +82,6 @@ Implemented custom exceptions and JSON persistence.
 ### Day 7 - Console Project ✅
 
 Built:
-
 # Appointment Management System
 
 Implemented:
@@ -105,7 +99,6 @@ Implemented:
 Learned database design, tables, relationships, primary keys, and foreign keys.
 
 Built:
-
 ### AppointmentDB
 
 Created Customers, Services, and Appointments tables.
@@ -116,13 +109,13 @@ Created Customers, Services, and Appointments tables.
 
 Learned SELECT, INSERT, UPDATE, DELETE, filtering, sorting, and joins.
 
-Implemented appointment database queries.
+Implemented relational database queries.
 
 ---
 
 ### Day 10 - Advanced SQL ✅
 
-Learned constraints, aggregate functions, GROUP BY, HAVING, and indexes.
+Learned constraints, aggregate functions, GROUP BY, HAVING, and indexing.
 
 Implemented database rules and reporting queries.
 
@@ -131,7 +124,6 @@ Implemented database rules and reporting queries.
 ### Day 11 - Entity Framework Core Basics ✅
 
 Built:
-
 ### AppointmentEF
 
 Learned:
@@ -140,7 +132,7 @@ Learned:
 - Entity Relationships
 - EF Core Migrations
 
-Implemented SQL Server integration using EF Core.
+Implemented EF Core with SQL Server integration.
 
 ---
 
@@ -168,11 +160,12 @@ Learned:
 - Swagger Testing
 
 Implemented:
+- ASP.NET Core Web API
 - EF Core Integration
 - SQL Server Persistence
-- Environment Configuration
+- CRUD Endpoints
 
-Created APIs:
+APIs Created:
 
 ```text
 GET       /api/Appointments
@@ -184,16 +177,65 @@ DELETE    /api/Appointments/{id}
 
 ---
 
+### Day 14 - API Refactoring & Professional Structure ✅
+
+Upgraded AppointmentAPI architecture.
+
+Converted:
+
+```text
+Controller
+    ↓
+DbContext
+```
+
+Into:
+
+```text
+Controller
+    ↓
+IAppointmentService
+    ↓
+Service Layer
+    ↓
+EF Core
+    ↓
+SQL Server
+```
+
+Implemented:
+- DTO Pattern
+- Request & Response Models
+- Service Layer Separation
+- Dependency Injection
+- Clean Controller Design
+- Business Validation Rules
+
+Added DTOs:
+- CreateAppointmentDto
+- UpdateAppointmentDto
+- AppointmentDto
+
+Validation:
+- Prevent Past Appointments
+- Prevent Duplicate Active Bookings
+
+Tested:
+- GET / POST / PUT / DELETE APIs
+- DTO Responses
+- Business Rules
+
+---
+
 # 🔥 Current Focus
 
-## Clean API Architecture
+## Production API Development
 
 Learning:
-
-- DTO Pattern
+- Global Exception Handling
 - Repository Pattern
 - Async / Await
-- Validation
+- API Response Wrappers
 - Authentication
 
 ---
@@ -203,7 +245,7 @@ Learning:
 ## Backend
 - Clean Architecture
 - JWT Authentication
-- Authorization
+- Role Authorization
 - Unit Testing
 
 ## Frontend
@@ -227,11 +269,13 @@ Completed:
 - SQL Database ✅
 - EF Core Version ✅
 - Web API CRUD ✅
+- DTO + Service Architecture ✅
 
 Upcoming:
-- Clean Architecture
+- Repository Pattern
 - Authentication
 - React Frontend
+- Deployment
 
 ---
 
@@ -239,7 +283,7 @@ Upcoming:
 
 Stack:
 
-ASP.NET Core | EF Core | SQL Server | React
+ASP.NET Core | EF Core | SQL Server | React | JWT
 
 ---
 
@@ -247,7 +291,11 @@ ASP.NET Core | EF Core | SQL Server | React
 
 Upgrade:
 
-Desktop App → Modern Full Stack .NET Application
+Windows Forms + ADO.NET
+
+↓
+
+Modern Full Stack .NET Application
 
 ---
 
@@ -263,21 +311,31 @@ Exception Handling            ✅
 
 SQL Server                    ✅
 Entity Framework Core         ✅
+
 ASP.NET Core Web API CRUD     ✅
+DTO Pattern                   ✅
+Service Layer                 ✅
+Business Rules                ✅
+
 
 Current:
-Clean API Architecture 🚀
+Production API Practices 🚀
+
 
 Next:
+Exception Handling
+       ↓
+Repository Pattern
+       ↓
 Authentication
-     ↓
-React
-     ↓
+       ↓
+React Integration
+       ↓
 Deployment
 ```
 
 ---
 
 ```text
-Learn → Build → Refactor → Deploy 🚀
+Learn → Build → Refactor → Improve → Deploy 🚀
 ```
