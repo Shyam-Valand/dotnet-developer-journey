@@ -1,7 +1,6 @@
-﻿using AppointmentAPI.Data;
-using AppointmentAPI.Models;
+﻿using AppointmentAPI.DTOs;
+using AppointmentAPI.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace AppointmentAPI.Controllers;
 
@@ -9,81 +8,78 @@ namespace AppointmentAPI.Controllers;
 [ApiController]
 public class AppointmentsController : ControllerBase
 {
-    private readonly AppDbContext _context;
-    public AppointmentsController(AppDbContext context)
+    private readonly IAppointmentService _appointmentService;
+
+    public AppointmentsController(IAppointmentService appointmentService)
     {
-        _context = context;
+        _appointmentService = appointmentService;
     }
+
 
     // GET: api/appointments
     [HttpGet]
     public IActionResult GetAppointments()
     {
-        var appointments = _context.Appointments
-            .Include(x => x.Customer)
-            .Include(x => x.Service)
-            .ToList();
+        var appointments = _appointmentService.GetAllAppointments();
 
         return Ok(appointments);
     }
+
 
     // GET: api/appointments/1
     [HttpGet("{id}")]
     public IActionResult GetAppointment(int id)
     {
-        var appointment = _context.Appointments
-            .Include(x => x.Customer)
-            .Include(x => x.Service)
-            .FirstOrDefault(x => x.Id == id);
+        var appointment = _appointmentService.GetAppointmentById(id);
 
         if (appointment == null)
         {
-            return NotFound();
+            return NotFound("Appointment not found");
         }
+
         return Ok(appointment);
     }
+
 
     // POST: api/appointments
     [HttpPost]
-    public IActionResult CreateAppointment(Appointment appointment)
+    public IActionResult CreateAppointment(CreateAppointmentDto appointmentDto)
     {
-        _context.Appointments.Add(appointment);
-        _context.SaveChanges();
+        var appointment = _appointmentService.CreateAppointment(appointmentDto);
 
         return Ok(appointment);
     }
 
+
+    // PUT: api/appointments/1
     [HttpPut("{id}")]
     public IActionResult UpdateAppointment(
-    int id,
-    Appointment updatedAppointment)
+        int id,
+        UpdateAppointmentDto appointmentDto)
     {
-        var appointment = _context.Appointments.FirstOrDefault(x => x.Id == id);
+        var appointment =
+            _appointmentService.UpdateAppointment(id, appointmentDto);
+
         if (appointment == null)
         {
-            return NotFound();
+            return NotFound("Appointment not found");
         }
-
-        appointment.AppointmentDate = updatedAppointment.AppointmentDate;
-        appointment.Status = updatedAppointment.Status;
-        _context.SaveChanges();
 
         return Ok(appointment);
     }
+
 
     // DELETE: api/appointments/1
     [HttpDelete("{id}")]
     public IActionResult DeleteAppointment(int id)
     {
-        var appointment = _context.Appointments.FirstOrDefault(x => x.Id == id);
+        var result =
+            _appointmentService.DeleteAppointment(id);
 
-        if (appointment == null)
+        if (!result)
         {
-            return NotFound();
+            return NotFound("Appointment not found");
         }
-
-        _context.Appointments.Remove(appointment);
-        _context.SaveChanges();
 
         return Ok("Appointment Deleted Successfully");
     }
