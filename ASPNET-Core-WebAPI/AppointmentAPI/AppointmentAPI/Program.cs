@@ -1,5 +1,7 @@
 using AppointmentAPI.Data;
 using AppointmentAPI.Services;
+using AppointmentAPI.Repositories;
+using AppointmentAPI.Middleware;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json.Serialization;
 
@@ -8,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+
 // Register EF Core SQL Server
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
@@ -15,21 +18,35 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     )
 );
 
+
 // Register Application Services
 builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 
+
+// Register Repositories
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+
+
 // Register Controllers + Fix EF Core JSON Cycle Issue
-builder.Services.AddControllers().AddJsonOptions(options =>
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
     {
         options.JsonSerializerOptions.ReferenceHandler =
             ReferenceHandler.IgnoreCycles;
     });
 
+
 // Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 var app = builder.Build();
+
+
+// Global Exception Handler
+app.UseMiddleware<ExceptionMiddleware>();
+
 
 // Configure HTTP request pipeline
 if (app.Environment.IsDevelopment())
@@ -40,6 +57,9 @@ if (app.Environment.IsDevelopment())
 
 
 app.UseHttpsRedirection();
+
 app.UseAuthorization();
+
 app.MapControllers();
+
 app.Run();

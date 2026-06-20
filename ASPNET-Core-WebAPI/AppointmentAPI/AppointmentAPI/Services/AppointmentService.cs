@@ -1,55 +1,63 @@
-﻿using AppointmentAPI.Data;
-using AppointmentAPI.DTOs;
+﻿using AppointmentAPI.DTOs;
 using AppointmentAPI.Models;
-using Microsoft.EntityFrameworkCore;
+using AppointmentAPI.Repositories;
 
 namespace AppointmentAPI.Services;
 
 public class AppointmentService : IAppointmentService
 {
-    private readonly AppDbContext _context;
+    private readonly IAppointmentRepository _repository;
 
-    public AppointmentService(AppDbContext context)
+
+    public AppointmentService(
+        IAppointmentRepository repository)
     {
-        _context = context;
+        _repository = repository;
     }
 
-    public List<AppointmentDto> GetAllAppointments()
+
+    public async Task<List<AppointmentDto>> GetAllAppointments()
     {
-        return _context.Appointments
-            .Include(x => x.Customer)
-            .Include(x => x.Service)
-            .Select(x => new AppointmentDto
-            {
-                Id = x.Id,
-                CustomerName = x.Customer!.Name,
-                ServiceName = x.Service!.Name,
-                AppointmentDate = x.AppointmentDate,
-                Status = x.Status
-            })
-            .ToList();
+        var appointments =
+            await _repository.GetAll();
+
+
+        return appointments.Select(x => new AppointmentDto
+        {
+            Id = x.Id,
+            CustomerName = x.Customer!.Name,
+            ServiceName = x.Service!.Name,
+            AppointmentDate = x.AppointmentDate,
+            Status = x.Status
+
+        }).ToList();
     }
 
-    public AppointmentDto? GetAppointmentById(int id)
+
+    public async Task<AppointmentDto?> GetAppointmentById(int id)
     {
-        return _context.Appointments
-            .Include(x => x.Customer)
-            .Include(x => x.Service)
-            .Where(x => x.Id == id)
-            .Select(x => new AppointmentDto
-            {
-                Id = x.Id,
-                CustomerName = x.Customer!.Name,
-                ServiceName = x.Service!.Name,
-                AppointmentDate = x.AppointmentDate,
-                Status = x.Status
-            })
-            .FirstOrDefault();
+        var appointment =
+            await _repository.GetById(id);
+
+
+        if (appointment == null)
+            return null;
+
+
+        return new AppointmentDto
+        {
+            Id = appointment.Id,
+            CustomerName = appointment.Customer!.Name,
+            ServiceName = appointment.Service!.Name,
+            AppointmentDate = appointment.AppointmentDate,
+            Status = appointment.Status
+        };
     }
 
-    public Appointment CreateAppointment(CreateAppointmentDto dto)
+
+    public async Task<Appointment> CreateAppointment(
+        CreateAppointmentDto dto)
     {
-        // Rule 1: Prevent past appointments
         if (dto.AppointmentDate < DateTime.Now)
         {
             throw new Exception(
@@ -57,19 +65,21 @@ public class AppointmentService : IAppointmentService
             );
         }
 
-        // Rule 2: Prevent duplicate booking
-        bool alreadyBooked = _context.Appointments.Any(x =>
-                x.ServiceId == dto.ServiceId &&
-                x.AppointmentDate == dto.AppointmentDate &&
-                x.Status != "Cancelled"
-                );
 
-        if (alreadyBooked)
+        bool exists =
+            await _repository.Exists(
+                dto.ServiceId,
+                dto.AppointmentDate
+            );
+
+
+        if (exists)
         {
             throw new Exception(
                 "This appointment slot is already booked"
             );
         }
+
 
         var appointment = new Appointment
         {
@@ -79,36 +89,57 @@ public class AppointmentService : IAppointmentService
             Status = "Booked"
         };
 
-        _context.Appointments.Add(appointment);
-        _context.SaveChanges();
+
+        await _repository.Add(appointment);
+
+        await _repository.Save();
 
 
         return appointment;
     }
 
-    public Appointment? UpdateAppointment(int id,UpdateAppointmentDto dto)
+
+    public async Task<Appointment?> UpdateAppointment(
+        int id,
+        UpdateAppointmentDto dto)
     {
-        var appointment = _context.Appointments.FirstOrDefault(x => x.Id == id);
+        var appointment =
+            await _repository.GetById(id);
+
 
         if (appointment == null)
             return null;
 
-        appointment.AppointmentDate = dto.AppointmentDate;
-        appointment.Status = dto.Status;
-        _context.SaveChanges();
+
+        appointment.AppointmentDate =
+            dto.AppointmentDate;
+
+        appointment.Status =
+            dto.Status;
+
+
+        await _repository.Save();
+
 
         return appointment;
     }
 
-    public bool DeleteAppointment(int id)
+
+    public async Task<bool> DeleteAppointment(int id)
     {
-        var appointment = _context.Appointments.FirstOrDefault(x => x.Id == id);
+        var appointment =
+            await _repository.GetById(id);
+
 
         if (appointment == null)
             return false;
 
-        _context.Appointments.Remove(appointment);
-        _context.SaveChanges();
+
+        _repository.Delete(appointment);
+
+
+        await _repository.Save();
+
 
         return true;
     }

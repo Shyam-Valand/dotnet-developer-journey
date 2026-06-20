@@ -15,22 +15,20 @@ public class AppointmentsController : ControllerBase
         _appointmentService = appointmentService;
     }
 
-
     // GET: api/appointments
     [HttpGet]
-    public IActionResult GetAppointments()
+    public async Task<IActionResult> GetAppointments()
     {
-        var appointments = _appointmentService.GetAllAppointments();
+        var appointments = await _appointmentService.GetAllAppointments();
 
         return Ok(appointments);
     }
 
-
     // GET: api/appointments/1
     [HttpGet("{id}")]
-    public IActionResult GetAppointment(int id)
+    public async Task<IActionResult> GetAppointment(int id)
     {
-        var appointment = _appointmentService.GetAppointmentById(id);
+        var appointment = await _appointmentService.GetAppointmentById(id);
 
         if (appointment == null)
         {
@@ -39,26 +37,23 @@ public class AppointmentsController : ControllerBase
 
         return Ok(appointment);
     }
-
 
     // POST: api/appointments
     [HttpPost]
-    public IActionResult CreateAppointment(CreateAppointmentDto appointmentDto)
+    public async Task<IActionResult> CreateAppointment(CreateAppointmentDto appointmentDto)
     {
-        var appointment = _appointmentService.CreateAppointment(appointmentDto);
+        var appointment = await _appointmentService.CreateAppointment(appointmentDto);
 
         return Ok(appointment);
     }
 
-
     // PUT: api/appointments/1
     [HttpPut("{id}")]
-    public IActionResult UpdateAppointment(
+    public async Task<IActionResult> UpdateAppointment(
         int id,
         UpdateAppointmentDto appointmentDto)
     {
-        var appointment =
-            _appointmentService.UpdateAppointment(id, appointmentDto);
+        var appointment = await _appointmentService.UpdateAppointment(id, appointmentDto);
 
         if (appointment == null)
         {
@@ -68,13 +63,11 @@ public class AppointmentsController : ControllerBase
         return Ok(appointment);
     }
 
-
     // DELETE: api/appointments/1
     [HttpDelete("{id}")]
-    public IActionResult DeleteAppointment(int id)
+    public async Task<IActionResult> DeleteAppointment(int id)
     {
-        var result =
-            _appointmentService.DeleteAppointment(id);
+        var result = await _appointmentService.DeleteAppointment(id);
 
         if (!result)
         {
