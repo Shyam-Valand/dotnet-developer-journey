@@ -1,9 +1,12 @@
 # .NET Developer Journey 🚀
 
-Daily learning journey towards becoming a Junior Full-Stack .NET Developer.
+Daily learning journey towards becoming a Full-Stack .NET Developer.
 
 ## 🎯 Target Role
-Junior Full-Stack .NET Developer
+
+Full-Stack .NET Developer  
+
+---
 
 ## 🛠 Tech Stack
 
@@ -16,10 +19,12 @@ Junior Full-Stack .NET Developer
 
 # 📚 Learning Progress
 
-## Phase 0 - Developer Setup ✅
+# Phase 0 - Developer Setup ✅
 
 Completed:
+
 - Development Environment Setup
+- Visual Studio
 - SQL Server Management Studio
 - Postman
 - Git & GitHub Workflow
@@ -28,117 +33,199 @@ Completed:
 
 # Phase 1 - .NET Backend Foundation 🚀
 
-## Week 1 - C# Foundation ✅
+# Week 1 - C# Foundation ✅
 
-### Day 1 - C# Fundamentals ✅
-Learned C# syntax, project structure, variables, data types, methods, and classes.
+
+## Day 1 - C# Fundamentals ✅
+
+Learned:
+
+- C# Syntax
+- Project Structure
+- Variables & Data Types
+- Methods
+- Classes
 
 Built:
+
 - Student Profile
 - User Registration
 - Salary Calculator
 
 ---
 
-### Day 2 - Control Flow ✅
-Learned conditions, operators, switch statements, and loops.
+## Day 2 - Control Flow ✅
+
+Learned:
+
+- Conditions
+- Operators
+- Switch Statements
+- Loops
 
 Built:
+
 - Grade Calculator
 - Login System
 - Calculator Practice
 
 ---
 
-### Day 3 & 4 - Object-Oriented Programming ✅
-Learned OOP principles including encapsulation, inheritance, polymorphism, interfaces, and service layer concepts.
+## Day 3 & Day 4 - Object-Oriented Programming ✅
+
+Learned:
+
+- Classes & Objects
+- Constructors
+- Encapsulation
+- Inheritance
+- Polymorphism
+- Interfaces
+- Service Layer Basics
 
 Built:
+
 - Banking System
 - User Management Practice
 
 ---
 
-### Day 5 - Collections & LINQ ✅
-Learned collections, List<T>, and LINQ queries.
+## Day 5 - Collections & LINQ ✅
+
+Learned:
+
+- Collections
+- List<T>
+- LINQ Queries
 
 Built:
-### Appointment System V1
 
-Implemented models, interfaces, services, and appointment business rules.
+## Appointment System V1
+
+Implemented:
+
+- Models
+- Interfaces
+- Services
+- Business Rules
 
 ---
 
-### Day 6 - Exceptions & JSON Storage ✅
-Learned exception handling, file handling, and JSON serialization.
+## Day 6 - Exceptions & JSON Storage ✅
+
+Learned:
+
+- Exception Handling
+- File Handling
+- JSON Serialization
 
 Built:
-### Appointment System V2
 
-Implemented custom exceptions and JSON persistence.
+## Appointment System V2
+
+Implemented:
+
+- Custom Exceptions
+- JSON Persistence
 
 ---
 
-### Day 7 - Console Project ✅
+## Day 7 - Console Project ✅
 
 Built:
+
 # Appointment Management System
 
 Implemented:
+
 - Appointment CRUD
-- Search & Cancel Features
-- Business Validations
+- Search
+- Cancellation
+- Business Validation
 - JSON Storage
 
 ---
 
-# Week 2 - Database & Web Development 🚀
+# Week 2 - Database & Web API Development 🚀
 
-### Day 8 - SQL Server Fundamentals ✅
 
-Learned database design, tables, relationships, primary keys, and foreign keys.
-
-Built:
-### AppointmentDB
-
-Created Customers, Services, and Appointments tables.
-
----
-
-### Day 9 - SQL CRUD Queries ✅
-
-Learned SELECT, INSERT, UPDATE, DELETE, filtering, sorting, and joins.
-
-Implemented relational database queries.
-
----
-
-### Day 10 - Advanced SQL ✅
-
-Learned constraints, aggregate functions, GROUP BY, HAVING, and indexing.
-
-Implemented database rules and reporting queries.
-
----
-
-### Day 11 - Entity Framework Core Basics ✅
-
-Built:
-### AppointmentEF
+## Day 8 - SQL Server Fundamentals ✅
 
 Learned:
-- ORM Concepts
-- DbContext & DbSet
-- Entity Relationships
-- EF Core Migrations
 
-Implemented EF Core with SQL Server integration.
+- Database Design
+- Tables
+- Primary Keys
+- Foreign Keys
+- Relationships
+
+Built:
+
+## AppointmentDB
+
+Created:
+
+- Customers
+- Services
+- Appointments
 
 ---
 
-### Day 12 - EF Core CRUD & Service Layer ✅
+## Day 9 - SQL CRUD Queries ✅
+
+Learned:
+
+- SELECT
+- INSERT
+- UPDATE
+- DELETE
+- Filtering
+- Sorting
+- Joins
+
+---
+
+## Day 10 - Advanced SQL ✅
+
+Learned:
+
+- Constraints
+- Aggregation
+- GROUP BY
+- HAVING
+- Indexing
 
 Implemented:
+
+- Database Rules
+- Reporting Queries
+
+---
+
+## Day 11 - Entity Framework Core Basics ✅
+
+Built:
+
+## AppointmentEF
+
+Learned:
+
+- ORM Concepts
+- DbContext
+- DbSet
+- EF Core Relationships
+- Migrations
+
+Implemented:
+
+- SQL Server + EF Core Integration
+
+---
+
+## Day 12 - EF Core CRUD & Service Layer ✅
+
+Implemented:
+
 - EF Core CRUD Operations
 - LINQ Database Queries
 - Service Layer
@@ -146,13 +233,14 @@ Implemented:
 
 ---
 
-### Day 13 - ASP.NET Core Web API CRUD ✅
+## Day 13 - ASP.NET Core Web API CRUD ✅
 
 Built:
 
 # AppointmentAPI
 
 Learned:
+
 - REST API Development
 - Controllers
 - Routing
@@ -160,26 +248,34 @@ Learned:
 - Swagger Testing
 
 Implemented:
+
 - ASP.NET Core Web API
 - EF Core Integration
 - SQL Server Persistence
 - CRUD Endpoints
 
-APIs Created:
+
+API Endpoints:
 
 ```text
 GET       /api/Appointments
+
 GET       /api/Appointments/{id}
+
 POST      /api/Appointments
+
 PUT       /api/Appointments/{id}
+
 DELETE    /api/Appointments/{id}
 ```
 
 ---
 
-### Day 14 - API Refactoring & Professional Structure ✅
+# Day 14 - Production API Refactoring & Architecture Upgrade ✅
 
-Upgraded AppointmentAPI architecture.
+
+Upgraded AppointmentAPI from basic CRUD into a cleaner enterprise-style backend.
+
 
 Converted:
 
@@ -188,6 +284,7 @@ Controller
     ↓
 DbContext
 ```
+
 
 Into:
 
@@ -198,62 +295,125 @@ IAppointmentService
     ↓
 Service Layer
     ↓
+IRepository
+    ↓
+Repository Layer
+    ↓
 EF Core
     ↓
 SQL Server
 ```
 
 Implemented:
+
 - DTO Pattern
 - Request & Response Models
-- Service Layer Separation
+- Repository Pattern
+- Service Layer Architecture
 - Dependency Injection
+- Async / Await Programming
+- Custom Exception Classes
+- Global Exception Middleware
+- Standard API Response Wrapper
 - Clean Controller Design
-- Business Validation Rules
 
-Added DTOs:
+
+Created Layers:
+
+```text
+Controllers
+DTOs
+Services
+Repositories
+Middleware
+Models
+Data
+```
+
+DTOs:
+
 - CreateAppointmentDto
 - UpdateAppointmentDto
 - AppointmentDto
+- ApiResponse<T>
 
-Validation:
+Custom Exceptions:
+
+- BadRequestException
+- NotFoundException
+
+Business Rules:
+
 - Prevent Past Appointments
 - Prevent Duplicate Active Bookings
 
+Standard Response Format:
+
+Success:
+
+```json
+{
+  "success": true,
+  "message": "Operation completed successfully",
+  "data": {}
+}
+```
+
+Error:
+
+```json
+{
+  "success": false,
+  "message": "Error message",
+  "data": null
+}
+```
+
 Tested:
-- GET / POST / PUT / DELETE APIs
-- DTO Responses
-- Business Rules
+- GET All Appointments ✅
+- GET Appointment By Id ✅
+- Create Appointment ✅
+- Update Appointment ✅
+- Delete Appointment ✅
+- Validation Rules ✅
+- Error Handling ✅
 
 ---
 
 # 🔥 Current Focus
 
-## Production API Development
+## Authentication & Security
 
-Learning:
-- Global Exception Handling
-- Repository Pattern
-- Async / Await
-- API Response Wrappers
-- Authentication
+Learning Next:
+- ASP.NET Core Identity
+- JWT Authentication
+- Refresh Tokens
+- Role Based Authorization
+- Secure API Design
 
 ---
 
 # 🏗 Upcoming Roadmap
 
+
 ## Backend
+
 - Clean Architecture
-- JWT Authentication
-- Role Authorization
+- Authentication
+- Authorization
 - Unit Testing
+- Logging
+
 
 ## Frontend
+
 - React
 - TypeScript
 - API Integration
 
-## Deployment
+
+## DevOps
+
 - Docker
 - Azure
 - CI/CD
@@ -262,40 +422,58 @@ Learning:
 
 # 📌 Portfolio Projects
 
-## Appointment Booking Platform 🚀
+
+# Appointment Booking Platform 🚀
 
 Completed:
 - Console Version ✅
 - SQL Database ✅
 - EF Core Version ✅
-- Web API CRUD ✅
-- DTO + Service Architecture ✅
+- ASP.NET Core Web API ✅
+- DTO Architecture ✅
+- Service Layer ✅
+- Repository Pattern ✅
+- Async Programming ✅
+- Global Exception Handling ✅
+- Standard API Responses ✅
+
 
 Upcoming:
-- Repository Pattern
-- Authentication
+- JWT Authentication
+- Role Based Authorization
 - React Frontend
-- Deployment
+- Docker
+- Azure Deployment
+
 
 ---
 
-## Expense & Budget Manager SaaS (Planned)
+# Enterprise Banking Ledger System ⭐ (Planned)
 
-Stack:
+Enterprise finance application.
 
-ASP.NET Core | EF Core | SQL Server | React | JWT
+Planned Stack:
+- ASP.NET Core Web API  
+- EF Core  
+- SQL Server  
+- React  
+- JWT  
+- Docker  
+- Azure  
 
 ---
 
-## Hotel Management Modernization (Planned)
+# Hotel Management Modernization (Planned)
 
-Upgrade:
+Upgrade old academic project:
 
-Windows Forms + ADO.NET
+FROM:
 
-↓
+Windows Forms + ADO.NET + SQL Server
 
-Modern Full Stack .NET Application
+TO:
+
+React + ASP.NET Core Web API + EF Core + Clean Architecture
 
 ---
 
@@ -308,29 +486,32 @@ C# Foundation                 ✅
 OOP                           ✅
 Collections + LINQ            ✅
 Exception Handling            ✅
-
 SQL Server                    ✅
 Entity Framework Core         ✅
-
 ASP.NET Core Web API CRUD     ✅
 DTO Pattern                   ✅
 Service Layer                 ✅
+Repository Pattern            ✅
+Async / Await                 ✅
+Global Exception Handling     ✅
+API Response Wrapper          ✅
 Business Rules                ✅
 
 
 Current:
-Production API Practices 🚀
 
+Authentication & Security 🚀
 
 Next:
-Exception Handling
-       ↓
-Repository Pattern
-       ↓
-Authentication
-       ↓
+
+JWT Authentication
+    ↓
+Authorization
+    ↓
 React Integration
-       ↓
+    ↓
+Testing
+    ↓
 Deployment
 ```
 
@@ -338,4 +519,3 @@ Deployment
 
 ```text
 Learn → Build → Refactor → Improve → Deploy 🚀
-```

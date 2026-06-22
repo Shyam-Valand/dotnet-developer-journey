@@ -13,7 +13,7 @@ public class AppointmentRepository : IAppointmentRepository
         _context = context;
     }
 
-    public async Task<List<Appointment>> GetAll()
+    public async Task<List<Appointment>> GetAllAsync()
     {
         return await _context.Appointments
             .Include(x => x.Customer)
@@ -21,7 +21,7 @@ public class AppointmentRepository : IAppointmentRepository
             .ToListAsync();
     }
 
-    public async Task<Appointment?> GetById(int id)
+    public async Task<Appointment?> GetByIdAsync(int id)
     {
         return await _context.Appointments
             .Include(x => x.Customer)
@@ -29,7 +29,7 @@ public class AppointmentRepository : IAppointmentRepository
             .FirstOrDefaultAsync(x => x.Id == id);
     }
 
-    public async Task Add(Appointment appointment)
+    public async Task AddAsync(Appointment appointment)
     {
         await _context.Appointments.AddAsync(appointment);
     }
@@ -39,7 +39,7 @@ public class AppointmentRepository : IAppointmentRepository
         _context.Appointments.Remove(appointment);
     }
 
-    public async Task<bool> Exists(int serviceId,DateTime appointmentDate)
+    public async Task<bool> ExistsAsync(int serviceId,DateTime appointmentDate)
     {
         return await _context.Appointments
             .AnyAsync(x =>
@@ -49,7 +49,7 @@ public class AppointmentRepository : IAppointmentRepository
             );
     }
 
-    public async Task Save()
+    public async Task SaveAsync()
     {
         await _context.SaveChangesAsync();
     }

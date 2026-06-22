@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿using AppointmentAPI.Exceptions;
+using AppointmentAPI.DTOs;
+using System.Net;
 using System.Text.Json;
 
 namespace AppointmentAPI.Middleware;
@@ -20,15 +22,15 @@ public class ExceptionMiddleware
         }
         catch (Exception ex)
         {
-            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
             context.Response.ContentType = "application/json";
-
-            var response = new
+            context.Response.StatusCode = ex switch
             {
-                success = false,
-                message = ex.Message
+                BadRequestException => (int)HttpStatusCode.BadRequest,
+                NotFoundException => (int)HttpStatusCode.NotFound,
+                _ => (int)HttpStatusCode.InternalServerError
             };
 
+            var response = new ApiResponse<string>(false,ex.Message,null);
             var json = JsonSerializer.Serialize(response);
             await context.Response.WriteAsync(json);
         }

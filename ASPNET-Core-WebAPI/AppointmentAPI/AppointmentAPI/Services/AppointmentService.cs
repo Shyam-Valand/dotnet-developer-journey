@@ -1,6 +1,7 @@
 ﻿using AppointmentAPI.DTOs;
 using AppointmentAPI.Models;
 using AppointmentAPI.Repositories;
+using AppointmentAPI.Exceptions;
 
 namespace AppointmentAPI.Services;
 
@@ -8,19 +9,14 @@ public class AppointmentService : IAppointmentService
 {
     private readonly IAppointmentRepository _repository;
 
-
-    public AppointmentService(
-        IAppointmentRepository repository)
+    public AppointmentService(IAppointmentRepository repository)
     {
         _repository = repository;
     }
 
-
-    public async Task<List<AppointmentDto>> GetAllAppointments()
+    public async Task<List<AppointmentDto>> GetAllAppointmentsAsync()
     {
-        var appointments =
-            await _repository.GetAll();
-
+        var appointments = await _repository.GetAllAsync();
 
         return appointments.Select(x => new AppointmentDto
         {
@@ -33,16 +29,12 @@ public class AppointmentService : IAppointmentService
         }).ToList();
     }
 
-
-    public async Task<AppointmentDto?> GetAppointmentById(int id)
+    public async Task<AppointmentDto?> GetAppointmentByIdAsync(int id)
     {
-        var appointment =
-            await _repository.GetById(id);
-
+        var appointment = await _repository.GetByIdAsync(id);
 
         if (appointment == null)
             return null;
-
 
         return new AppointmentDto
         {
@@ -54,32 +46,22 @@ public class AppointmentService : IAppointmentService
         };
     }
 
-
-    public async Task<Appointment> CreateAppointment(
-        CreateAppointmentDto dto)
+    public async Task<AppointmentDto> CreateAppointmentAsync(CreateAppointmentDto dto)
     {
         if (dto.AppointmentDate < DateTime.Now)
         {
-            throw new Exception(
-                "Appointment date cannot be in the past"
-            );
+            throw new BadRequestException("Appointment date cannot be in the past");
         }
 
-
-        bool exists =
-            await _repository.Exists(
+        bool exists = await _repository.ExistsAsync(
                 dto.ServiceId,
                 dto.AppointmentDate
             );
 
-
         if (exists)
         {
-            throw new Exception(
-                "This appointment slot is already booked"
-            );
+            throw new BadRequestException("This appointment slot is already booked");
         }
-
 
         var appointment = new Appointment
         {
@@ -89,57 +71,51 @@ public class AppointmentService : IAppointmentService
             Status = "Booked"
         };
 
+        await _repository.AddAsync(appointment);
+        await _repository.SaveAsync();
 
-        await _repository.Add(appointment);
+        var createdAppointment = await _repository.GetByIdAsync(appointment.Id);
 
-        await _repository.Save();
-
-
-        return appointment;
+        return new AppointmentDto
+        {
+            Id = createdAppointment!.Id,
+            CustomerName = createdAppointment.Customer!.Name,
+            ServiceName = createdAppointment.Service!.Name,
+            AppointmentDate = createdAppointment.AppointmentDate,
+            Status = createdAppointment.Status
+        };
     }
 
-
-    public async Task<Appointment?> UpdateAppointment(
-        int id,
-        UpdateAppointmentDto dto)
+    public async Task<AppointmentDto?> UpdateAppointmentAsync(int id,UpdateAppointmentDto dto)
     {
-        var appointment =
-            await _repository.GetById(id);
-
+        var appointment = await _repository.GetByIdAsync(id);
 
         if (appointment == null)
             return null;
 
+        appointment.AppointmentDate = dto.AppointmentDate;
+        appointment.Status = dto.Status;
+        await _repository.SaveAsync();
 
-        appointment.AppointmentDate =
-            dto.AppointmentDate;
-
-        appointment.Status =
-            dto.Status;
-
-
-        await _repository.Save();
-
-
-        return appointment;
+        return new AppointmentDto
+        {
+            Id = appointment.Id,
+            CustomerName = appointment.Customer!.Name,
+            ServiceName = appointment.Service!.Name,
+            AppointmentDate = appointment.AppointmentDate,
+            Status = appointment.Status
+        };
     }
 
-
-    public async Task<bool> DeleteAppointment(int id)
+    public async Task<bool> DeleteAppointmentAsync(int id)
     {
-        var appointment =
-            await _repository.GetById(id);
-
+        var appointment = await _repository.GetByIdAsync(id);
 
         if (appointment == null)
             return false;
 
-
         _repository.Delete(appointment);
-
-
-        await _repository.Save();
-
+        await _repository.SaveAsync();
 
         return true;
     }

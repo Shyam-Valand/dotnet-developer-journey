@@ -1,4 +1,4 @@
-﻿namespace AppointmentAPI.Models;
+﻿    namespace AppointmentAPI.Models;
 
 public class Appointment
 {

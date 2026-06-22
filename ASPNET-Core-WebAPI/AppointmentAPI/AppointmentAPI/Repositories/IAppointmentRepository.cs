@@ -4,12 +4,18 @@ namespace AppointmentAPI.Repositories;
 
 public interface IAppointmentRepository
 {
-    Task<List<Appointment>> GetAll();
-    Task<Appointment?> GetById(int id);
-    Task Add(Appointment appointment);
+    Task<List<Appointment>> GetAllAsync();
+
+    Task<Appointment?> GetByIdAsync(int id);
+
+    Task AddAsync(Appointment appointment);
+
     void Delete(Appointment appointment);
 
-    Task<bool> Exists(int serviceId,DateTime appointmentDate);
+    Task<bool> ExistsAsync(
+        int serviceId,
+        DateTime appointmentDate
+    );
 
-    Task Save();
+    Task SaveAsync();
 }
