@@ -25,6 +25,7 @@ Focus:
 # 🛠 Tech Stack
 
 ## Backend
+
 - C#
 - .NET 8
 - ASP.NET Core Web API
@@ -33,6 +34,7 @@ Focus:
 - JWT Authentication
 
 ## Frontend
+
 - React
 - TypeScript
 - JavaScript
@@ -41,14 +43,18 @@ Focus:
 - Tailwind CSS
 
 ## Database
+
 - SQL Server
 - MongoDB
 
 ## Tools & Practices
+
 - Visual Studio
 - VS Code
 - Git
 - GitHub
+- GitHub Issues
+- Pull Requests
 - Postman
 - Swagger
 - Docker
@@ -58,6 +64,7 @@ Focus:
 ---
 
 # 📅 Daily Learning Progress
+
 
 # Day 0 - Developer Setup ✅
 
@@ -135,8 +142,7 @@ Learned:
 Practiced:
 
 - Object Modeling
-- Method Design
-- Business Logic inside Classes
+- Business Logic Design
 
 Built:
 
@@ -155,16 +161,12 @@ Learned:
 - Abstraction
 - Service Layer Concepts
 
-Practiced:
-
-- Interface Based Programming
-- Separating Business Logic
-
 Implemented:
 
+- Interface Based Programming
 - User/Admin Inheritance
 - Service Classes
-- Cleaner Code Structure
+- Clean Code Structure
 
 ---
 
@@ -175,13 +177,6 @@ Learned:
 - Collections
 - List<T>
 - LINQ Queries
-- Filtering Data
-
-Practiced:
-
-- Searching
-- Query Operations
-- Collection Management
 
 Built:
 
@@ -189,13 +184,11 @@ Built:
 
 Implemented:
 
-- Appointment Models
+- Models
 - Interfaces
 - Appointment Service
-- Create Appointment
-- View Appointment
-- Cancel Appointment
-- Duplicate Booking Validation
+- CRUD Operations
+- Business Rules
 
 ---
 
@@ -207,11 +200,6 @@ Learned:
 - File Handling
 - JSON Serialization
 
-Practiced:
-
-- Error Handling
-- Data Persistence
-
 Built:
 
 ## Appointment System V2
@@ -219,30 +207,19 @@ Built:
 Implemented:
 
 - Custom Exceptions
-- JSON Storage
-- Save Appointments
-- Load Appointments
+- JSON Persistence
 
 ---
 
 ## Day 7 - Console Appointment Management System ✅
 
-Built complete console-based application.
-
 Implemented:
 
 - Appointment CRUD
-- Search Feature
-- Cancellation Feature
-- Business Validation Rules
-- JSON Data Storage
-
-Tested:
-
-- Create Appointment
-- Duplicate Prevention
-- Past Appointment Prevention
-- Cancel Appointment
+- Search
+- Cancellation
+- Validation Rules
+- JSON Storage
 
 ---
 
@@ -266,10 +243,9 @@ Built:
 
 Implemented:
 
-- Customers Table
-- Services Table
-- Appointments Table
-- Table Relationships
+- Customers
+- Services
+- Appointments
 
 ---
 
@@ -281,11 +257,6 @@ Learned:
 - INSERT
 - UPDATE
 - DELETE
-
-Practiced:
-
-- WHERE Filtering
-- ORDER BY
 - JOIN Queries
 
 Implemented:
@@ -299,7 +270,7 @@ Implemented:
 Learned:
 
 - Constraints
-- Aggregate Functions
+- Aggregations
 - GROUP BY
 - HAVING
 - Indexing
@@ -308,7 +279,6 @@ Implemented:
 
 - Database Rules
 - Reporting Queries
-- Optimization Basics
 
 ---
 
@@ -316,10 +286,10 @@ Implemented:
 
 Learned:
 
-- ORM Concepts
+- ORM
 - DbContext
 - DbSet
-- EF Core Relationships
+- Relationships
 - Migrations
 
 Built:
@@ -328,11 +298,9 @@ Built:
 
 Implemented:
 
-- Model Classes
-- Database Context
-- Connection String
+- EF Core Models
 - SQL Server Integration
-- EF Core Migrations
+- Migrations
 
 ---
 
@@ -340,21 +308,10 @@ Implemented:
 
 Implemented:
 
-- EF Core CRUD Operations
-- LINQ Database Queries
+- EF Core CRUD
+- LINQ Queries
 - Service Layer
 - Business Validations
-
-Built:
-
-AppointmentEF Upgrade
-
-Features:
-
-- Create Appointment
-- Update Appointment
-- Delete Appointment
-- Query Appointments
 
 ---
 
@@ -374,38 +331,15 @@ Learned:
 
 Implemented:
 
-- Appointment Controller
-- HTTP Methods
+- GET API
+- POST API
+- PUT API
+- DELETE API
 - EF Core Integration
-- JSON API Responses
-
-
-Created APIs:
-
-```text
-GET       /api/Appointments
-
-GET       /api/Appointments/{id}
-
-POST      /api/Appointments
-
-PUT       /api/Appointments/{id}
-
-DELETE    /api/Appointments/{id}
-```
-
-Tested:
-
-- GET ✅
-- POST ✅
-- PUT ✅
-- DELETE ✅
 
 ---
 
 # Day 14 - API Architecture Refactoring ✅
-
-Improved API structure and separation of responsibilities.
 
 Converted:
 
@@ -429,46 +363,39 @@ EF Core
 SQL Server
 ```
 
-Learned:
-
-- DTO Pattern
-- Layer Separation
-- Cleaner API Design
-
 Implemented:
 
-- CreateAppointmentDto
-- UpdateAppointmentDto
-- AppointmentDto
-- Service Interfaces
+- DTO Pattern
+- Service Layer
 - Dependency Injection
-- Controller Cleanup
+- Clean Controller Design
 
 Business Rules:
 
-- Prevent Past Appointment Booking
-- Prevent Duplicate Appointment Slots
+- Prevent Past Appointments
+- Prevent Duplicate Slots
 
 ---
 
 # Day 15 - Production API Practices ✅
 
-Upgraded AppointmentAPI with enterprise backend patterns.
+Upgraded AppointmentAPI with enterprise backend practices.
 
 Learned:
 
 - Repository Pattern
 - Async Programming
-- Exception Handling Strategy
+- Exception Handling
 
 Implemented:
 
-## Repository Layer
-
-Created:
-
 - IAppointmentRepository
 - AppointmentRepository
+- Async / Await
+- EF Core Async Queries
+- Custom Exceptions
+- Global Exception Middleware
+- ApiResponse<T>
 
 Architecture:
 
@@ -484,59 +411,132 @@ EF Core
 SQL Server
 ```
 
-Added:
-
-- Async / Await
-- EF Core Async Queries
-- Custom Exceptions
-- Global Exception Middleware
-- Standard API Response Wrapper
-
-
-Created:
-
-Exceptions:
-
-- BadRequestException
-- NotFoundException
-
-
-Middleware:
-
-- ExceptionMiddleware
-
-
-DTO:
-
-- ApiResponse<T>
-
-
-Response Standard:
-
-```json
-{
-  "success": true,
-  "message": "message",
-  "data": {}
-}
-```
-
-Fixed:
-
-- Entity Exposure Issues
-- Navigation Property JSON Problems
-- Response Consistency
-
-
 Tested:
 
-- GET All ✅
-- GET By ID ✅
-- POST Create ✅
-- PUT Update ✅
-- DELETE ✅
-- Validation Errors ✅
-- HTTP Status Codes ✅
+- CRUD Operations ✅
+- Validation Rules ✅
+- Error Handling ✅
+
+---
+# Day 16 - Appointment Availability Validation & GitHub Workflow ✅
+
+Enhanced AppointmentAPI with real-world booking rules and professional development workflow.
+
+Learned:
+
+- GitHub Issue Management
+- Feature Branch Workflow
+- Pull Request Workflow
+- Code Review Process
+- Advanced Business Rule Implementation
+
+Practiced:
+
+- Creating GitHub Issues
+- Working With Feature Branches
+- Creating Pull Requests
+- Reviewing Code Changes
+- Merging Feature Branches
+
+Implemented:
+
+## Appointment Overlap Validation
+
+Added:
+
+- Service Duration Based Availability Checking
+- Appointment Start Time Calculation
+- Appointment End Time Calculation
+- Overlapping Appointment Detection
+- Reschedule Conflict Prevention
+
+Example:
+
+Existing Appointment:
+
+```text
+10:00 - 10:30
+```
+
+Blocked:
+
+```text
+10:05 ❌
+10:15 ❌
+```
+
+Allowed:
+
+```text
+10:30 ✅
+```
+
+Updated:
+
+## Repository Layer
+
+Implemented:
+
+- Appointment Availability Query
+- Duration Based Conflict Checking
+- EF Core Overlap Logic
+
+## Service Layer
+
+Implemented:
+
+- Create Appointment Validation
+- Update Appointment Validation
+- Business Rule Enforcement
+- Cancelled Appointment Availability Handling
+
+
+Business Rules:
+
+- Prevent Same Time Booking
+- Prevent Booking Inside Existing Appointment Duration
+- Allow Booking After Appointment Completion
+- Allow Cancelled Slots To Be Reused
+
+
+Testing Completed:
+
+- Same Start Time Conflict ✅
+- Duration Overlap Conflict ✅
+- Valid Slot Booking ✅
+- Different Service Booking ✅
+- Reschedule Validation ✅
+- Cancelled Slot Rebooking ✅
+
+
+GitHub Workflow Completed:
+
+```text
+Issue Created
+      ↓
+Feature Branch
+      ↓
+Development
+      ↓
+Testing
+      ↓
+Commit
+      ↓
+Pull Request
+      ↓
+Code Review
+      ↓
+Merge Into Main
+```
+
+Completed:
+
+- Created GitHub Issue ✅
+- Implemented Feature Branch Development ✅
+- Created Pull Request ✅
+- Linked PR With Issue ✅
+- Reviewed Code Changes ✅
+- Merged Feature Into Main ✅
 
 ---
 
@@ -550,14 +550,17 @@ Learning Next:
 - JWT Authentication
 - Refresh Tokens
 - Role Based Authorization
+- Secure API Development
 
 ---
 
 # 📌 Portfolio Projects
 
+
 ## Healthcare Appointment Booking Platform 🚀
 
 Current Project
+
 
 Completed:
 
@@ -568,7 +571,14 @@ Completed:
 - DTO Architecture ✅
 - Service Layer ✅
 - Repository Pattern ✅
-- Error Handling ✅
+- Async Programming ✅
+- Global Exception Handling ✅
+- API Response Wrapper ✅
+- Appointment Business Rules ✅
+- Appointment Overlap Validation ✅
+- GitHub Issue Workflow ✅
+- Feature Branch Development ✅
+- Pull Request Workflow ✅
 
 
 Upcoming:
@@ -576,6 +586,7 @@ Upcoming:
 - JWT Authentication
 - Authorization
 - React Frontend
+- Unit Testing
 - Docker
 - Azure Deployment
 
@@ -586,12 +597,13 @@ Upcoming:
 Planned enterprise application.
 
 Stack:
-- ASP.NET Core Web API  
-- EF Core  
-- SQL Server  
-- React  
-- JWT  
-- Azure  
+
+- ASP.NET Core Web API
+- EF Core
+- SQL Server
+- React
+- JWT
+- Azure
 
 ---
 
@@ -601,8 +613,10 @@ Planned migration:
 
 ```text
 Windows Forms + SQL Server
+
         ↓
-React + ASP.NET Core + EF Core
+
+React + ASP.NET Core Web API + EF Core
 ```
 
 ---
@@ -624,11 +638,19 @@ Service Layer               ✅
 Repository Pattern          ✅
 Async Programming           ✅
 Global Error Handling       ✅
+API Response Wrapper        ✅
+Business Rules              ✅
+Appointment Validation      ✅
+
+GitHub Issues               ✅
+Feature Branch Workflow     ✅
+Pull Request Workflow       ✅
 
 
 Current:
 
 Authentication & Security 🚀
+
 
 Next:
 
