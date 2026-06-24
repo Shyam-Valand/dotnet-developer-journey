@@ -12,9 +12,15 @@ public interface IAppointmentRepository
 
     void Delete(Appointment appointment);
 
-    Task<bool> ExistsAsync(
+    Task<bool> ExistsAsync(int serviceId,DateTime appointmentDate);
+
+    Task<int> GetServiceDurationAsync(int serviceId);
+
+    Task<bool> HasOverlappingAppointmentAsync(
         int serviceId,
-        DateTime appointmentDate
+        DateTime startTime,
+        DateTime endTime,
+        int? excludeAppointmentId = null
     );
 
     Task SaveAsync();
