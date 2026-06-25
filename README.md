@@ -540,17 +540,94 @@ Completed:
 
 ---
 
+# Day 17 - JWT Authentication & Authorization ✅
+
+## Implemented secure authentication system for AppointmentAPI.
+
+Learned:
+
+- JWT Authentication
+- Claims Based Authentication
+- Role Based Authorization
+- API Security Practices
+
+Implemented:
+
+- User Model
+- Users Table
+- Authentication DTOs
+- User Repository
+- Auth Service
+- Password Hashing
+- JWT Token Generation
+- JWT Middleware Configuration
+
+Authentication Flow:
+
+```text
+Register/Login
+      ↓
+Validate User
+      ↓
+Generate JWT Token
+      ↓
+Access Protected APIs
+``` 
+
+JWT Claims Added:
+
+- UserId
+- Name
+- Email
+- Role
+
+## Authorization:
+
+Implemented:
+
+- [Authorize]
+- Role Based Access Control
+- Protected Appointment APIs
+
+Roles:
+
+- Patient
+- Doctor
+- Admin
+
+Security Added:
+
+- Custom 401 Unauthorized Response
+- Custom 403 Forbidden Response
+- Secure Configuration Management
+
+Testing Completed:
+
+- User Registration ✅
+- Password Hash Storage ✅
+- User Login ✅
+- JWT Token Generation ✅
+- Protected API Access ✅
+- Role Validation ✅
+
+GitHub Workflow Completed:
+
+- Created GitHub Issue ✅
+- Developed In Feature Branch ✅
+- Created Pull Request ✅
+- Code Review Completed ✅
+- Merged Into Main ✅
+
 # 🔥 Current Focus
 
-Authentication & Security
+Enterprise Authorization & User Access Control
 
 Learning Next:
 
-- ASP.NET Core Identity
-- JWT Authentication
-- Refresh Tokens
-- Role Based Authorization
-- Secure API Development
+- Patient Appointment Ownership
+- User Based Data Filtering
+- Advanced Authorization Rules
+- React Frontend Integration
 
 ---
 
@@ -576,6 +653,10 @@ Completed:
 - API Response Wrapper ✅
 - Appointment Business Rules ✅
 - Appointment Overlap Validation ✅
+- JWT Authentication ✅
+- Password Hashing ✅
+- Role Based Authorization ✅
+- Secure API Endpoints ✅
 - GitHub Issue Workflow ✅
 - Feature Branch Development ✅
 - Pull Request Workflow ✅
@@ -583,8 +664,8 @@ Completed:
 
 Upcoming:
 
-- JWT Authentication
-- Authorization
+- Patient Appointment Ownership
+- Advanced Authorization
 - React Frontend
 - Unit Testing
 - Docker
@@ -646,23 +727,23 @@ GitHub Issues               ✅
 Feature Branch Workflow     ✅
 Pull Request Workflow       ✅
 
+JWT Authentication          ✅
+Role Authorization          ✅
 
 Current:
 
-Authentication & Security 🚀
-
+Enterprise Authorization 🚀
 
 Next:
 
-JWT Authentication
-        ↓
-Authorization
+Patient Ownership
         ↓
 React Integration
         ↓
 Testing
         ↓
 Deployment
+
 ```
 
 ---
