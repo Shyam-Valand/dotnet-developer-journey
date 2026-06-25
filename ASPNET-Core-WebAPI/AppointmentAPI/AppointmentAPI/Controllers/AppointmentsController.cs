@@ -1,9 +1,11 @@
 ﻿using AppointmentAPI.DTOs;
 using AppointmentAPI.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AppointmentAPI.Controllers;
 
+[Authorize(Roles = "Patient")]
 [Route("api/[controller]")]
 [ApiController]
 public class AppointmentsController : ControllerBase
