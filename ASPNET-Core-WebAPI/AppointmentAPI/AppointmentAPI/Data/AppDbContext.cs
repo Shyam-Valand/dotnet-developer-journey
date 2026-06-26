@@ -5,7 +5,7 @@ namespace AppointmentAPI.Data;
 
 public class AppDbContext : DbContext
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options):base(options)
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
 
     }
@@ -20,5 +20,11 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Service>()
             .Property(x => x.Price)
             .HasPrecision(10, 2);
+
+        modelBuilder.Entity<Appointment>()
+            .HasOne(a => a.User)
+            .WithMany(u => u.Appointments)
+            .HasForeignKey(a => a.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
     }
 }

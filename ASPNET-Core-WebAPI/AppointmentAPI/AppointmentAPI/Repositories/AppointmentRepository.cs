@@ -49,6 +49,15 @@ public class AppointmentRepository : IAppointmentRepository
             );
     }
 
+    public async Task<List<Appointment>> GetByUserIdAsync(int userId)
+    {
+        return await _context.Appointments
+            .Include(x => x.Customer)
+            .Include(x => x.Service)
+            .Where(x => x.UserId == userId)
+            .ToListAsync();
+    }
+
     public async Task<bool> HasOverlappingAppointmentAsync(
     int serviceId,
     DateTime startTime,

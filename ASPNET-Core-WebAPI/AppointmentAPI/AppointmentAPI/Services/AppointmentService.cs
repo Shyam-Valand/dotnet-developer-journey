@@ -8,17 +8,19 @@
     public class AppointmentService : IAppointmentService
     {
         private readonly IAppointmentRepository _repository;
+        private readonly ICurrentUserService _currentUserService;
 
-        public AppointmentService(IAppointmentRepository repository)
+        public AppointmentService(IAppointmentRepository repository,ICurrentUserService currentUserService)
         {
             _repository = repository;
+            _currentUserService = currentUserService;
         }
 
-        public async Task<List<AppointmentDto>> GetAllAppointmentsAsync()
+    public async Task<List<AppointmentDto>> GetAllAppointmentsAsync()
         {
-            var appointments = await _repository.GetAllAsync();
+        var appointments = await _repository.GetByUserIdAsync(_currentUserService.UserId);
 
-            return appointments.Select(x => new AppointmentDto
+        return appointments.Select(x => new AppointmentDto
             {
                 Id = x.Id,
                 CustomerName = x.Customer!.Name,
@@ -69,6 +71,7 @@
 
             var appointment = new Appointment
             {
+                UserId = _currentUserService.UserId,
                 CustomerId = dto.CustomerId,
                 ServiceId = dto.ServiceId,
                 AppointmentDate = dto.AppointmentDate,

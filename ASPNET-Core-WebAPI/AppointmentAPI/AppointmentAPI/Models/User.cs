@@ -7,4 +7,6 @@ public class User
     public required string Email { get; set; }
     public required string PasswordHash { get; set; }
     public required string Role { get; set; }
+
+    public List<Appointment> Appointments { get; set; } = new();
 }
