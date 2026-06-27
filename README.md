@@ -65,7 +65,6 @@ Focus:
 
 # 📅 Daily Learning Progress
 
-
 # Day 0 - Developer Setup ✅
 
 Completed:
@@ -418,6 +417,7 @@ Tested:
 - Error Handling ✅
 
 ---
+
 # Day 16 - Appointment Availability Validation & GitHub Workflow ✅
 
 Enhanced AppointmentAPI with real-world booking rules and professional development workflow.
@@ -490,14 +490,12 @@ Implemented:
 - Business Rule Enforcement
 - Cancelled Appointment Availability Handling
 
-
 Business Rules:
 
 - Prevent Same Time Booking
 - Prevent Booking Inside Existing Appointment Duration
 - Allow Booking After Appointment Completion
 - Allow Cancelled Slots To Be Reused
-
 
 Testing Completed:
 
@@ -507,7 +505,6 @@ Testing Completed:
 - Different Service Booking ✅
 - Reschedule Validation ✅
 - Cancelled Slot Rebooking ✅
-
 
 GitHub Workflow Completed:
 
@@ -572,7 +569,7 @@ Validate User
 Generate JWT Token
       ↓
 Access Protected APIs
-``` 
+```
 
 JWT Claims Added:
 
@@ -618,6 +615,208 @@ GitHub Workflow Completed:
 - Code Review Completed ✅
 - Merged Into Main ✅
 
+---
+
+# Day 18 - Patient Appointment Ownership & Authorization ✅
+
+Enhanced AppointmentAPI with resource ownership and user-based authorization.
+
+Learned:
+
+- Resource Ownership
+- User Based Data Filtering
+- Claims Based Authorization
+- Secure API Access Control
+
+Implemented:
+
+- UserId Mapping For Appointments
+- User Specific Appointment Retrieval
+- Appointment Ownership Validation
+- Create Authorization
+- Read Authorization
+- Update Authorization
+- Delete Authorization
+
+Authorization Flow:
+
+```text
+User Login
+      ↓
+JWT Authentication
+      ↓
+Extract UserId From Claims
+      ↓
+Validate Appointment Owner
+      ↓
+Allow / Deny Request
+```
+
+Business Rules:
+
+- Users can create only their own appointments
+- Users can view only their own appointments
+- Users cannot update another user's appointment
+- Users cannot delete another user's appointment
+
+Testing Completed:
+
+- Appointment Ownership Validation ✅
+- User Specific Appointment List ✅
+- Unauthorized Read Blocked ✅
+- Unauthorized Update Blocked ✅
+- Unauthorized Delete Blocked ✅
+
+GitHub Workflow Completed:
+
+- Created GitHub Issue ✅
+- Developed In Feature Branch ✅
+- Created Pull Request ✅
+- Code Review Completed ✅
+- Merged Into Main ✅
+
+---
+
+# 🔥 Current Focus
+
+User & Customer Relationship
+
+Learning Next:
+
+- Link Users With Customers
+- Remove Manual Customer Selection
+- Admin Authorization
+- Doctor Authorization
+- React Frontend Integration
+
+---
+
+# 📌 Portfolio Projects
+
+## Healthcare Appointment Booking Platform 🚀
+
+Current Project
+
+Completed:
+
+- Console Application ✅
+- SQL Database ✅
+- EF Core Version ✅
+- ASP.NET Core Web API ✅
+- DTO Architecture ✅
+- Service Layer ✅
+- Repository Pattern ✅
+- Async Programming ✅
+- Global Exception Handling ✅
+- API Response Wrapper ✅
+- Appointment Business Rules ✅
+- Appointment Overlap Validation ✅
+- JWT Authentication ✅
+- Password Hashing ✅
+- Role Based Authorization ✅
+- Secure API Endpoints ✅
+- Patient Appointment Ownership ✅
+- User Based Data Filtering ✅
+- GitHub Issue Workflow ✅
+- Feature Branch Development ✅
+- Pull Request Workflow ✅
+
+Upcoming:
+
+- User & Customer Relationship
+- Admin Authorization
+- Doctor Authorization
+- React Frontend
+- Unit Testing
+- Docker
+- Azure Deployment
+
+---
+
+## Enterprise Banking Ledger System ⭐
+
+Planned enterprise application.
+
+Stack:
+
+- ASP.NET Core Web API
+- EF Core
+- SQL Server
+- React
+- JWT
+- Azure
+
+---
+
+## Hotel Management Modernization
+
+Planned migration:
+
+```text
+Windows Forms + SQL Server
+
+        ↓
+
+React + ASP.NET Core Web API + EF Core
+```
+
+---
+
+# 📈 Progress
+
+```text
+C# Fundamentals             ✅
+OOP                         ✅
+Collections + LINQ          ✅
+Exception Handling          ✅
+
+SQL Server                  ✅
+Entity Framework Core       ✅
+
+ASP.NET Core Web API        ✅
+DTO Pattern                 ✅
+Service Layer               ✅
+Repository Pattern          ✅
+Async Programming           ✅
+Global Error Handling       ✅
+API Response Wrapper        ✅
+Business Rules              ✅
+Appointment Validation      ✅
+
+GitHub Issues               ✅
+Feature Branch Workflow     ✅
+Pull Request Workflow       ✅
+
+JWT Authentication          ✅
+Role Authorization          ✅
+Appointment Ownership       ✅
+User Data Filtering         ✅
+
+Current:
+
+User & Customer Relationship 🚀
+
+Next:
+
+User & Customer Relationship
+        ↓
+Admin Authorization
+        ↓
+Doctor Authorization
+        ↓
+React Integration
+        ↓
+Testing
+        ↓
+Deployment
+```
+
+---
+
+```text
+Learn → Build → Refactor → Improve → Deploy 🚀
+```
+
 # 🔥 Current Focus
 
 Enterprise Authorization & User Access Control
@@ -633,11 +832,9 @@ Learning Next:
 
 # 📌 Portfolio Projects
 
-
 ## Healthcare Appointment Booking Platform 🚀
 
 Current Project
-
 
 Completed:
 
@@ -660,7 +857,6 @@ Completed:
 - GitHub Issue Workflow ✅
 - Feature Branch Development ✅
 - Pull Request Workflow ✅
-
 
 Upcoming:
 
