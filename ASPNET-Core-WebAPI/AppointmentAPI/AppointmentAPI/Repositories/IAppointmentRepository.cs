@@ -16,6 +16,8 @@ public interface IAppointmentRepository
 
     Task<int> GetServiceDurationAsync(int serviceId);
 
+    Task<List<Appointment>> GetByUserIdAsync(int userId);
+
     Task<bool> HasOverlappingAppointmentAsync(
         int serviceId,
         DateTime startTime,
