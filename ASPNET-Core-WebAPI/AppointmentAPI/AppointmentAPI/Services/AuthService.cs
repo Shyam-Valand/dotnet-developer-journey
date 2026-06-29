@@ -10,12 +10,14 @@ public class AuthService : IAuthService
     private readonly IUserRepository _userRepository;
     private readonly IPasswordService _passwordService;
     private readonly IJwtService _jwtService;
+    private readonly ICustomerRepository _customerRepository;
 
-    public AuthService(IUserRepository userRepository,IPasswordService passwordService,IJwtService jwtService)
+    public AuthService(IUserRepository userRepository, IPasswordService passwordService, IJwtService jwtService, ICustomerRepository customerRepository)
     {
         _userRepository = userRepository;
         _passwordService = passwordService;
         _jwtService = jwtService;
+        _customerRepository = customerRepository;
     }
 
     public async Task<AuthResponseDto> RegisterAsync(RegisterDto dto)
@@ -28,13 +30,27 @@ public class AuthService : IAuthService
                 "Email already registered"
             );
         }
+        Customer? customer = null;
+
+        if (dto.Role == "Patient")
+        {
+            customer = new Customer
+            {
+                Name = dto.Name,
+                Email = dto.Email,
+                Phone = dto.Phone
+            };
+
+            await _customerRepository.AddAsync(customer);
+        }
 
         var user = new User
         {
             Name = dto.Name,
             Email = dto.Email,
             PasswordHash = _passwordService.HashPassword(dto.Password),
-            Role = dto.Role
+            Role = dto.Role,
+            CustomerId = customer?.Id
         };
         await _userRepository.AddAsync(user);
 
@@ -57,7 +73,7 @@ public class AuthService : IAuthService
             );
         }
 
-        var validPassword = _passwordService.VerifyPassword(dto.Password,user.PasswordHash);
+        var validPassword = _passwordService.VerifyPassword(dto.Password, user.PasswordHash);
 
         if (!validPassword)
         {

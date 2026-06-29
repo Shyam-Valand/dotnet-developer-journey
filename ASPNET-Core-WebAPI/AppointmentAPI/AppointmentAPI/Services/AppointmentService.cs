@@ -9,11 +9,13 @@ public class AppointmentService : IAppointmentService
 {
     private readonly IAppointmentRepository _repository;
     private readonly ICurrentUserService _currentUserService;
+    private readonly IUserRepository _userRepository;
 
-    public AppointmentService(IAppointmentRepository repository, ICurrentUserService currentUserService)
+    public AppointmentService(IAppointmentRepository repository, ICurrentUserService currentUserService, IUserRepository userRepository)
     {
         _repository = repository;
         _currentUserService = currentUserService;
+        _userRepository = userRepository;
     }
 
     public async Task<List<AppointmentDto>> GetAllAppointmentsAsync()
@@ -76,10 +78,17 @@ public class AppointmentService : IAppointmentService
             );
         }
 
+        var user = await _userRepository.GetUserWithCustomerAsync(_currentUserService.UserId);
+
+        if (user == null || user.CustomerId == null)
+        {
+            throw new BadRequestException("Customer profile not found.");
+        }
+
         var appointment = new Appointment
         {
-            UserId = _currentUserService.UserId,
-            CustomerId = dto.CustomerId,
+            UserId = user.Id,
+            CustomerId = user.CustomerId.Value,
             ServiceId = dto.ServiceId,
             AppointmentDate = dto.AppointmentDate,
             Status = "Booked"
