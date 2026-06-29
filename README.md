@@ -1,10 +1,21 @@
 # .NET Developer Journey 🚀
 
+Building enterprise-ready backend applications through daily hands-on development, following professional software engineering practices and GitHub workflow.
+
 Daily progress log of my journey toward becoming a Full-Stack .NET Developer.
 
 Building practical applications using:
 
 C# • ASP.NET Core Web API • Entity Framework Core • SQL Server • React • TypeScript • Azure • Docker
+
+---
+
+## 🎯 Repository Goals
+
+- Learn enterprise .NET backend development
+- Build production-style portfolio projects
+- Follow professional GitHub workflow
+- Document daily progress
 
 ---
 
@@ -179,7 +190,7 @@ Learned:
 
 Built:
 
-## Appointment System V1
+### Appointment System V1
 
 Implemented:
 
@@ -201,7 +212,7 @@ Learned:
 
 Built:
 
-## Appointment System V2
+### Appointment System V2
 
 Implemented:
 
@@ -238,7 +249,7 @@ Learned:
 
 Built:
 
-## AppointmentDB
+### AppointmentDB
 
 Implemented:
 
@@ -293,7 +304,7 @@ Learned:
 
 Built:
 
-## AppointmentEF
+### AppointmentEF
 
 Implemented:
 
@@ -318,7 +329,7 @@ Implemented:
 
 Built:
 
-# AppointmentAPI V1
+### AppointmentAPI V1
 
 Learned:
 
@@ -338,7 +349,7 @@ Implemented:
 
 ---
 
-# Day 14 - API Architecture Refactoring ✅
+## Day 14 - API Architecture Refactoring ✅
 
 Converted:
 
@@ -376,7 +387,11 @@ Business Rules:
 
 ---
 
-# Day 15 - Production API Practices ✅
+# Week 3 - Enterprise Backend Development
+
+---
+
+## Day 15 - Production API Practices ✅
 
 Upgraded AppointmentAPI with enterprise backend practices.
 
@@ -418,7 +433,7 @@ Tested:
 
 ---
 
-# Day 16 - Appointment Availability Validation & GitHub Workflow ✅
+## Day 16 - Appointment Availability Validation & GitHub Workflow ✅
 
 Enhanced AppointmentAPI with real-world booking rules and professional development workflow.
 
@@ -440,7 +455,7 @@ Practiced:
 
 Implemented:
 
-## Appointment Overlap Validation
+### Appointment Overlap Validation
 
 Added:
 
@@ -473,7 +488,7 @@ Allowed:
 
 Updated:
 
-## Repository Layer
+### Repository Layer
 
 Implemented:
 
@@ -481,7 +496,7 @@ Implemented:
 - Duration Based Conflict Checking
 - EF Core Overlap Logic
 
-## Service Layer
+### Service Layer
 
 Implemented:
 
@@ -537,9 +552,9 @@ Completed:
 
 ---
 
-# Day 17 - JWT Authentication & Authorization ✅
+## Day 17 - JWT Authentication & Authorization ✅
 
-## Implemented secure authentication system for AppointmentAPI.
+**Implemented secure authentication system for AppointmentAPI.**
 
 Learned:
 
@@ -578,7 +593,7 @@ JWT Claims Added:
 - Email
 - Role
 
-## Authorization:
+### Authorization:
 
 Implemented:
 
@@ -617,7 +632,7 @@ GitHub Workflow Completed:
 
 ---
 
-# Day 18 - Patient Appointment Ownership & Authorization ✅
+## Day 18 - Patient Appointment Ownership & Authorization ✅
 
 Enhanced AppointmentAPI with resource ownership and user-based authorization.
 
@@ -677,17 +692,99 @@ GitHub Workflow Completed:
 
 ---
 
+## Day 19 - User-Customer Relationship & Secure Self-Booking ✅
+
+Learned
+
+- One-to-One Entity Relationships
+- Entity Relationships in EF Core
+- Automatic Profile Creation
+- Backend Driven Resource Resolution
+- Secure Self-Booking Design
+
+Implemented
+
+- Linked User with Customer Profile
+- Added CustomerId to User
+- Configured EF Core Relationship
+- Automatic Customer Creation During Patient Registration
+- Automatic User-Customer Linking
+- Removed Manual CustomerId Selection From Appointment API
+- Backend Automatically Resolves CustomerId
+- Updated Registration Flow
+- Updated Appointment Creation Flow
+
+### Registration Flow
+
+```text
+Patient Registration
+        ↓
+Create Customer Profile
+        ↓
+Create User Account
+        ↓
+Link User To Customer
+        ↓
+Generate JWT
+        ↓
+Patient Login
+```
+
+### Appointment Flow
+
+```text
+JWT Authentication
+        ↓
+Extract UserId
+        ↓
+Load User + Customer
+        ↓
+Resolve CustomerId
+        ↓
+Create Appointment
+```
+
+### Business Rules
+
+- One Patient owns one Customer Profile
+- Customer Profile created automatically during Patient Registration
+- Patients cannot select another CustomerId
+- CustomerId resolved automatically from authenticated user
+- Backend enforces resource ownership
+- Secure Self-Booking
+
+### Testing Completed
+
+- Patient Registration ✅
+- Automatic Customer Creation ✅
+- User-Customer Linking ✅
+- Login ✅
+- JWT Authentication ✅
+- Appointment Self-Booking ✅
+- CustomerId Not Accepted From Client ✅
+
+### GitHub Workflow Completed
+
+- Created GitHub Issue ✅
+- Developed In Feature Branch ✅
+- Created Pull Request ✅
+- Code Review Completed ✅
+- Merged Into Main ✅
+
+---
+
 # 🔥 Current Focus
 
-User & Customer Relationship
+Admin & Doctor Authorization 🚀
 
 Learning Next:
 
-- Link Users With Customers
-- Remove Manual Customer Selection
 - Admin Authorization
 - Doctor Authorization
 - React Frontend Integration
+- Unit Testing
+- Docker
+- Azure Deployment
 
 ---
 
@@ -695,7 +792,7 @@ Learning Next:
 
 ## Healthcare Appointment Booking Platform 🚀
 
-Current Project
+Current Enterprise Project
 
 Completed:
 
@@ -717,13 +814,16 @@ Completed:
 - Secure API Endpoints ✅
 - Patient Appointment Ownership ✅
 - User Based Data Filtering ✅
+- User-Customer Relationship ✅
+- Automatic Customer Profile Creation ✅
+- Automatic Customer Linking ✅
+- Secure Self-Booking ✅
 - GitHub Issue Workflow ✅
 - Feature Branch Development ✅
 - Pull Request Workflow ✅
 
 Upcoming:
 
-- User & Customer Relationship
 - Admin Authorization
 - Doctor Authorization
 - React Frontend
@@ -791,15 +891,16 @@ JWT Authentication          ✅
 Role Authorization          ✅
 Appointment Ownership       ✅
 User Data Filtering         ✅
+Claims-Based Authorization  ✅
+User-Customer Relationship  ✅
+Automatic Customer Linking  ✅
+Secure Self-Booking         ✅
 
 Current:
 
-User & Customer Relationship 🚀
+Admin & Doctor Authorization 🚀
 
 Next:
-
-User & Customer Relationship
-        ↓
 Admin Authorization
         ↓
 Doctor Authorization
@@ -813,6 +914,8 @@ Deployment
 
 ---
 
+# Learning Journey
+
 ```text
-Learn → Build → Refactor → Improve → Deploy 🚀
+Learn → Build → Test → Refactor → Improve → Deploy 🚀
 ```

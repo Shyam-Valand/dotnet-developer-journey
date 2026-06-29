@@ -32,6 +32,7 @@ builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 // Register Repositories
 builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 // Register Controllers + Fix EF Core JSON Cycle Issue
 builder.Services.AddControllers().AddJsonOptions(options =>
