@@ -28,6 +28,7 @@ public class AppointmentService : IAppointmentService
             CustomerName = x.Customer!.Name,
             ServiceName = x.Service!.Name,
             AppointmentDate = x.AppointmentDate,
+            DoctorName = x.Doctor?.Name,
             Status = x.Status
         }).ToList();
     }
@@ -52,6 +53,7 @@ public class AppointmentService : IAppointmentService
             CustomerName = appointment.Customer!.Name,
             ServiceName = appointment.Service!.Name,
             AppointmentDate = appointment.AppointmentDate,
+            DoctorName = appointment.Doctor?.Name,
             Status = appointment.Status
         };
     }
@@ -105,6 +107,7 @@ public class AppointmentService : IAppointmentService
             CustomerName = createdAppointment.Customer!.Name,
             ServiceName = createdAppointment.Service!.Name,
             AppointmentDate = createdAppointment.AppointmentDate,
+            DoctorName = createdAppointment.Doctor?.Name,
             Status = createdAppointment.Status
         };
     }
@@ -160,6 +163,7 @@ public class AppointmentService : IAppointmentService
             CustomerName = appointment.Customer!.Name,
             ServiceName = appointment.Service!.Name,
             AppointmentDate = appointment.AppointmentDate,
+            DoctorName = appointment.Doctor?.Name,
             Status = appointment.Status
         };
     }
@@ -186,5 +190,45 @@ public class AppointmentService : IAppointmentService
         await _repository.SaveAsync();
 
         return true;
+    }
+
+    public async Task AssignDoctorAsync(int appointmentId, AssignDoctorDto dto)
+    {
+        var appointment = await _repository.GetByIdAsync(appointmentId);
+
+        if (appointment == null)
+        {
+            throw new NotFoundException("Appointment not found");
+        }
+
+        var doctor = await _userRepository.GetByIdAsync(dto.DoctorId);
+
+        if (doctor == null)
+        {
+            throw new NotFoundException("Doctor not found");
+        }
+
+        if (doctor.Role != "Doctor")
+        {
+            throw new BadRequestException("Selected user is not a doctor");
+        }
+
+        appointment.DoctorId = doctor.Id;
+        await _repository.SaveAsync();
+    }
+
+    public async Task<List<AppointmentDto>> GetDoctorAppointmentsAsync()
+    {
+        var appointments = await _repository.GetByDoctorIdAsync(_currentUserService.UserId);
+
+        return appointments.Select(x => new AppointmentDto
+        {
+            Id = x.Id,
+            CustomerName = x.Customer!.Name,
+            ServiceName = x.Service!.Name,
+            AppointmentDate = x.AppointmentDate,
+            DoctorName = x.Doctor?.Name,
+            Status = x.Status
+        }).ToList();
     }
 }

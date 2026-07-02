@@ -773,18 +773,94 @@ Create Appointment
 
 ---
 
-# 🔥 Current Focus
+## Day 20 - Admin & Doctor Authorization ✅
 
-Admin & Doctor Authorization 🚀
+Enhanced AppointmentAPI with Admin and Doctor role-based authorization.
 
-Learning Next:
+Learned
 
 - Admin Authorization
 - Doctor Authorization
+- Multi-Role Authorization
+- Secure Role-Based API Design
+- Separation of Business Responsibilities
+
+Implemented
+
+- Added DoctorId to Appointment
+- Configured Doctor Relationship in EF Core
+- Admin Can Assign Doctors To Patient Appointments
+- Doctor Specific Appointment Retrieval
+- Dedicated Doctor Appointment Endpoint
+- Removed Doctor Assignment From Patient Update API
+
+### Doctor Assignment Flow
+
+```text
+Admin Login
+        ↓
+JWT Authentication
+        ↓
+Assign Doctor
+        ↓
+Appointment Updated
+```
+
+### Doctor Appointment Flow
+
+```text
+Doctor Login
+        ↓
+JWT Authentication
+        ↓
+Extract UserId From Claims
+        ↓
+Load Assigned Appointments
+        ↓
+Return Doctor Schedule
+```
+
+### Business Rules
+
+- Only Admin can assign doctors
+- Doctors can view only their assigned appointments
+- Patients cannot assign or change doctors
+- Doctor assignment is handled through a dedicated endpoint
+- JWT Role-Based Authorization enforced
+
+### Testing Completed
+
+- Patient APIs ✅
+- Admin APIs ✅
+- Doctor APIs ✅
+- JWT Authorization ✅
+- Role-Based Authorization ✅
+- Swagger Testing ✅
+- Postman Testing ✅
+- SQL Server Verification ✅
+
+### GitHub Workflow Completed
+
+- Created GitHub Issue ✅
+- Developed In Feature Branch ✅
+- Created Pull Request ✅
+- Code Review Completed ✅
+- Merged Into Main ✅
+
+---
+
+# 🔥 Current Focus
+
+Doctor Availability 🚀
+
+Learning Next:
+
+- Doctor Availability
+- Appointment Workflow
+- Search & Filtering
+- Reviews & Ratings
+- Dashboard APIs
 - React Frontend Integration
-- Unit Testing
-- Docker
-- Azure Deployment
 
 ---
 
@@ -818,14 +894,20 @@ Completed:
 - Automatic Customer Profile Creation ✅
 - Automatic Customer Linking ✅
 - Secure Self-Booking ✅
+- Admin Authorization ✅
+- Doctor Authorization ✅
+- Doctor Assignment Workflow ✅
 - GitHub Issue Workflow ✅
 - Feature Branch Development ✅
 - Pull Request Workflow ✅
 
 Upcoming:
 
-- Admin Authorization
-- Doctor Authorization
+- Doctor Availability
+- Appointment Workflow
+- Search & Filtering
+- Reviews & Ratings
+- Dashboard APIs
 - React Frontend
 - Unit Testing
 - Docker
@@ -888,7 +970,9 @@ Feature Branch Workflow     ✅
 Pull Request Workflow       ✅
 
 JWT Authentication          ✅
-Role Authorization          ✅
+Role-Based Authorization    ✅
+Admin Authorization         ✅
+Doctor Authorization        ✅
 Appointment Ownership       ✅
 User Data Filtering         ✅
 Claims-Based Authorization  ✅
@@ -898,19 +982,24 @@ Secure Self-Booking         ✅
 
 Current:
 
-Admin & Doctor Authorization 🚀
+Doctor Availability 🚀
 
 Next:
-Admin Authorization
+Doctor Availability
         ↓
-Doctor Authorization
+Appointment Workflow
         ↓
-React Integration
+Search & Filtering
+        ↓
+Dashboard APIs
+        ↓
+React Frontend
         ↓
 Testing
         ↓
-Deployment
-```
+Docker
+        ↓
+Azure Deployment
 
 ---
 

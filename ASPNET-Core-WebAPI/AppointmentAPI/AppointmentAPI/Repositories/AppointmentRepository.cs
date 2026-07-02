@@ -19,6 +19,7 @@ public class AppointmentRepository : IAppointmentRepository
         return await _context.Appointments
             .Include(x => x.Customer)
             .Include(x => x.Service)
+            .Include(x => x.Doctor)
             .ToListAsync();
     }
 
@@ -27,7 +28,18 @@ public class AppointmentRepository : IAppointmentRepository
         return await _context.Appointments
             .Include(x => x.Customer)
             .Include(x => x.Service)
+            .Include(x => x.Doctor)
             .FirstOrDefaultAsync(x => x.Id == id);
+    }
+
+    public async Task<List<Appointment>> GetByDoctorIdAsync(int doctorId)
+    {
+        return await _context.Appointments
+            .Include(x => x.Customer)
+            .Include(x => x.Service)
+            .Include(x => x.Doctor)
+            .Where(x => x.DoctorId == doctorId)
+            .ToListAsync();
     }
 
     public async Task AddAsync(Appointment appointment)
@@ -54,6 +66,7 @@ public class AppointmentRepository : IAppointmentRepository
         return await _context.Appointments
             .Include(x => x.Customer)
             .Include(x => x.Service)
+            .Include(x => x.Doctor)
             .Where(x => x.UserId == userId)
             .ToListAsync();
     }

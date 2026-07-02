@@ -27,10 +27,18 @@ public class AppDbContext : DbContext
             .HasForeignKey(a => a.UserId)
             .OnDelete(DeleteBehavior.Restrict);
 
+        modelBuilder.Entity<Appointment>()
+            .HasOne(a => a.Doctor)
+            .WithMany()
+            .HasForeignKey(a => a.DoctorId)
+            .OnDelete(DeleteBehavior.Restrict);
+
         modelBuilder.Entity<User>()
             .HasOne(u => u.Customer)
             .WithMany()
             .HasForeignKey(u => u.CustomerId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        
     }
 }
