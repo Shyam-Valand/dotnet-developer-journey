@@ -20,14 +20,17 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> GetUserWithCustomerAsync(int id)
     {
-        return await _context.Users
-            .Include(u => u.Customer)
-            .FirstOrDefaultAsync(u => u.Id == id);
+        return await _context.Users.Include(u => u.Customer).FirstOrDefaultAsync(u => u.Id == id);
     }
 
     public async Task AddAsync(User user)
     {
         await _context.Users.AddAsync(user);
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<User?> GetByIdAsync(int id)
+    {
+        return await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
     }
 }

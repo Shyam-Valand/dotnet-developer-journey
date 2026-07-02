@@ -14,4 +14,8 @@ public interface IAppointmentService
     Task<AppointmentDto?> UpdateAppointmentAsync(int id,UpdateAppointmentDto dto);
 
     Task<bool> DeleteAppointmentAsync(int id);
+
+    Task AssignDoctorAsync(int appointmentId, AssignDoctorDto dto);
+
+    Task<List<AppointmentDto>> GetDoctorAppointmentsAsync();
 }
