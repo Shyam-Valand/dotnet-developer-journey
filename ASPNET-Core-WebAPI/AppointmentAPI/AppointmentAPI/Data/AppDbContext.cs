@@ -14,6 +14,7 @@ public class AppDbContext : DbContext
     public DbSet<Service> Services { get; set; }
     public DbSet<Appointment> Appointments { get; set; }
     public DbSet<User> Users { get; set; }
+    public DbSet<DoctorAvailability> DoctorAvailabilities { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -39,6 +40,12 @@ public class AppDbContext : DbContext
             .HasForeignKey(u => u.CustomerId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        
+        modelBuilder.Entity<DoctorAvailability>()
+            .HasOne(x => x.Doctor)
+            .WithMany()
+            .HasForeignKey(x => x.DoctorId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+
     }
 }
