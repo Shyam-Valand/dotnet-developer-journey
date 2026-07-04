@@ -27,5 +27,7 @@ public interface IAppointmentRepository
         int? excludeAppointmentId = null
     );
 
+    Task<Appointment?> GetAppointmentWithDoctorAsync(int id);
+
     Task SaveAsync();
 }

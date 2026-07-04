@@ -18,4 +18,10 @@ public interface IAppointmentService
     Task AssignDoctorAsync(int appointmentId, AssignDoctorDto dto);
 
     Task<List<AppointmentDto>> GetDoctorAppointmentsAsync();
+
+    Task<AppointmentDto> ConfirmAppointmentAsync(int id);
+
+    Task<AppointmentDto> CompleteAppointmentAsync(int id);
+
+    Task<AppointmentDto> CancelAppointmentAsync(int id);
 }
