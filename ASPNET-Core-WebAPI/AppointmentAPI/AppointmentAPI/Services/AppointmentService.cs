@@ -1,8 +1,7 @@
-﻿using AppointmentAPI.Constants;
-using AppointmentAPI.DTOs;
-using AppointmentAPI.Exceptions;
+﻿using AppointmentAPI.DTOs;
 using AppointmentAPI.Models;
 using AppointmentAPI.Repositories;
+using AppointmentAPI.Exceptions;
 
 namespace AppointmentAPI.Services;
 
@@ -94,7 +93,7 @@ public class AppointmentService : IAppointmentService
             CustomerId = user.CustomerId.Value,
             ServiceId = dto.ServiceId,
             AppointmentDate = dto.AppointmentDate,
-            Status = AppointmentStatus.Booked,
+            Status = "Booked"
         };
 
         await _repository.AddAsync(appointment);
@@ -155,124 +154,7 @@ public class AppointmentService : IAppointmentService
             );
         }
         appointment.AppointmentDate = dto.AppointmentDate;
-       
-        await _repository.SaveAsync();
-
-        return new AppointmentDto
-        {
-            Id = appointment.Id,
-            CustomerName = appointment.Customer!.Name,
-            ServiceName = appointment.Service!.Name,
-            AppointmentDate = appointment.AppointmentDate,
-            DoctorName = appointment.Doctor?.Name,
-            Status = appointment.Status
-        };
-    }
-
-    public async Task<AppointmentDto> ConfirmAppointmentAsync(int id)
-    {
-        var appointment = await _repository.GetAppointmentWithDoctorAsync(id);
-
-        if (appointment == null)
-        {
-            throw new NotFoundException("Appointment not found");
-        }
-
-        if (appointment.DoctorId != _currentUserService.UserId)
-        {
-            throw new BadRequestException(
-                "You are not assigned to this appointment."
-            );
-        }
-
-        if (!AppointmentWorkflow.CanTransition(
-                appointment.Status,
-                AppointmentStatus.Confirmed))
-        {
-            throw new BadRequestException(
-                $"Cannot change appointment status from '{appointment.Status}' to '{AppointmentStatus.Confirmed}'.");
-        }
-
-        appointment.Status = AppointmentStatus.Confirmed;
-
-        await _repository.SaveAsync();
-
-        return new AppointmentDto
-        {
-            Id = appointment.Id,
-            CustomerName = appointment.Customer!.Name,
-            ServiceName = appointment.Service!.Name,
-            AppointmentDate = appointment.AppointmentDate,
-            DoctorName = appointment.Doctor?.Name,
-            Status = appointment.Status
-        };
-    }
-
-    public async Task<AppointmentDto> CompleteAppointmentAsync(int id)
-    {
-        var appointment = await _repository.GetAppointmentWithDoctorAsync(id);
-
-        if (appointment == null)
-        {
-            throw new NotFoundException("Appointment not found");
-        }
-
-        if (appointment.DoctorId != _currentUserService.UserId)
-        {
-            throw new BadRequestException(
-                "You are not assigned to this appointment."
-            );
-        }
-
-        if (!AppointmentWorkflow.CanTransition(
-                appointment.Status,
-                AppointmentStatus.Completed))
-        {
-            throw new BadRequestException(
-                $"Cannot change appointment status from '{appointment.Status}' to '{AppointmentStatus.Completed}'.");
-        }
-
-        appointment.Status = AppointmentStatus.Completed;
-
-        await _repository.SaveAsync();
-
-        return new AppointmentDto
-        {
-            Id = appointment.Id,
-            CustomerName = appointment.Customer!.Name,
-            ServiceName = appointment.Service!.Name,
-            AppointmentDate = appointment.AppointmentDate,
-            DoctorName = appointment.Doctor?.Name,
-            Status = appointment.Status
-        };
-    }
-
-    public async Task<AppointmentDto> CancelAppointmentAsync(int id)
-    {
-        var appointment = await _repository.GetByIdAsync(id);
-
-        if (appointment == null)
-        {
-            throw new NotFoundException("Appointment not found");
-        }
-
-        if (appointment.UserId != _currentUserService.UserId)
-        {
-            throw new BadRequestException(
-                "You are not authorized to cancel this appointment."
-            );
-        }
-
-        if (!AppointmentWorkflow.CanTransition(
-                appointment.Status,
-                AppointmentStatus.Cancelled))
-        {
-            throw new BadRequestException(
-                $"Cannot change appointment status from '{appointment.Status}' to '{AppointmentStatus.Cancelled}'.");
-        }
-
-        appointment.Status = AppointmentStatus.Cancelled;
-
+        appointment.Status = dto.Status;
         await _repository.SaveAsync();
 
         return new AppointmentDto
