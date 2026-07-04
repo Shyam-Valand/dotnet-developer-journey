@@ -171,4 +171,51 @@ public class AppointmentsController : ControllerBase
             )
         );
     }
+
+    [Authorize(Roles = "Doctor")]
+    [HttpPost("{id}/confirm")]
+    public async Task<IActionResult> ConfirmAppointment(int id)
+    {
+        var result = await _appointmentService.ConfirmAppointmentAsync(id);
+
+        return Ok(
+            new ApiResponse<AppointmentDto>(
+                true,
+                "Appointment confirmed successfully.",
+                result
+            )
+        );
+    }
+
+    [Authorize(Roles = "Doctor")]
+    [HttpPost("{id}/complete")]
+    public async Task<IActionResult> CompleteAppointment(int id)
+    {
+        var result = await _appointmentService.CompleteAppointmentAsync(id);
+
+        return Ok(
+            new ApiResponse<AppointmentDto>
+            (
+                true,
+                "Appointment completed successfully.",
+                result
+            )
+        );
+    }
+
+    [Authorize(Roles = "Patient")]
+    [HttpPost("{id}/cancel")]
+    public async Task<IActionResult> CancelAppointment(int id)
+    {
+        var result = await _appointmentService.CancelAppointmentAsync(id);
+
+        return Ok(
+            new ApiResponse<AppointmentDto>
+            (
+                true,
+                "Appointment cancelled successfully.",
+                result
+            )
+        );
+    }
 }

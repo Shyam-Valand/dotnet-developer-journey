@@ -2,6 +2,7 @@
 using AppointmentAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using AppointmentAPI.Exceptions;
+using AppointmentAPI.Constants;
 
 namespace AppointmentAPI.Repositories;
 
@@ -57,7 +58,7 @@ public class AppointmentRepository : IAppointmentRepository
         return await _context.Appointments.AnyAsync(x =>
                 x.ServiceId == serviceId &&
                 x.AppointmentDate == appointmentDate &&
-                x.Status != "Cancelled"
+                x.Status != AppointmentStatus.Cancelled
             );
     }
 
@@ -82,7 +83,7 @@ public class AppointmentRepository : IAppointmentRepository
             .AnyAsync(x =>
                 x.ServiceId == serviceId &&
                 x.Id != excludeAppointmentId &&
-                x.Status != "Cancelled" &&
+                x.Status != AppointmentStatus.Cancelled &&
                 startTime < x.AppointmentDate.AddMinutes(
                     x.Service!.DurationMinutes
                 ) &&
@@ -102,6 +103,16 @@ public class AppointmentRepository : IAppointmentRepository
         }
 
         return service.DurationMinutes;
+    }
+
+    public async Task<Appointment?> GetAppointmentWithDoctorAsync(int id)
+    {
+        return await _context.Appointments
+            .Include(a => a.Customer)
+            .Include(a => a.Service)
+            .Include(a => a.Doctor)
+            .Include(a => a.User)
+            .FirstOrDefaultAsync(a => a.Id == id);
     }
 
     public async Task SaveAsync()
