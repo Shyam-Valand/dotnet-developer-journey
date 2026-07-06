@@ -1,8 +1,9 @@
-﻿using AppointmentAPI.Data;
+﻿using AppointmentAPI.Constants;
+using AppointmentAPI.Data;
+using AppointmentAPI.DTOs;
+using AppointmentAPI.Exceptions;
 using AppointmentAPI.Models;
 using Microsoft.EntityFrameworkCore;
-using AppointmentAPI.Exceptions;
-using AppointmentAPI.Constants;
 
 namespace AppointmentAPI.Repositories;
 
@@ -53,7 +54,7 @@ public class AppointmentRepository : IAppointmentRepository
         _context.Appointments.Remove(appointment);
     }
 
-    public async Task<bool> ExistsAsync(int serviceId,DateTime appointmentDate)
+    public async Task<bool> ExistsAsync(int serviceId, DateTime appointmentDate)
     {
         return await _context.Appointments.AnyAsync(x =>
                 x.ServiceId == serviceId &&
@@ -113,6 +114,57 @@ public class AppointmentRepository : IAppointmentRepository
             .Include(a => a.Doctor)
             .Include(a => a.User)
             .FirstOrDefaultAsync(a => a.Id == id);
+    }
+
+    public async Task<List<Appointment>> SearchAppointmentsAsync(
+    AppointmentSearchDto dto,
+    string role,
+    int userId)
+    {
+        var query = _context.Appointments
+            .Include(x => x.Customer)
+            .Include(x => x.Service)
+            .Include(x => x.Doctor)
+            .AsQueryable();
+
+        // Role-based filtering
+        if (role == "Patient")
+        {
+            query = query.Where(x => x.UserId == userId);
+        }
+        else if (role == "Doctor")
+        {
+            query = query.Where(x => x.DoctorId == userId);
+        }
+
+        // Optional filters
+        if (!string.IsNullOrWhiteSpace(dto.Status))
+        {
+            query = query.Where(x => x.Status == dto.Status);
+        }
+
+        if (dto.AppointmentDate.HasValue)
+        {
+            query = query.Where(x =>
+                x.AppointmentDate.Date == dto.AppointmentDate.Value.Date);
+        }
+
+        if (dto.DoctorId.HasValue)
+        {
+            query = query.Where(x => x.DoctorId == dto.DoctorId);
+        }
+
+        if (dto.ServiceId.HasValue)
+        {
+            query = query.Where(x => x.ServiceId == dto.ServiceId);
+        }
+
+        if (dto.PatientId.HasValue)
+        {
+            query = query.Where(x => x.CustomerId == dto.PatientId);
+        }
+
+        return await query.ToListAsync();
     }
 
     public async Task SaveAsync()

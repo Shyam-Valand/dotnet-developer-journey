@@ -51,6 +51,24 @@ public class AppointmentsController : ControllerBase
         );
     }
 
+    // GET: api/appointments/search
+    [Authorize(Roles = "Patient,Doctor,Admin")]
+    [HttpGet("search")]
+    public async Task<IActionResult> SearchAppointments(
+        [FromQuery] AppointmentSearchDto dto)
+    {
+        var appointments = await _appointmentService.SearchAppointmentsAsync(dto);
+
+        return Ok(
+            new ApiResponse<List<AppointmentDto>>
+            (
+                true,
+                "Appointments retrieved successfully.",
+                appointments
+            )
+        );
+    }
+
     // GET: api/appointments/1
     [Authorize(Roles = "Patient")]
     [HttpGet("{id}")]

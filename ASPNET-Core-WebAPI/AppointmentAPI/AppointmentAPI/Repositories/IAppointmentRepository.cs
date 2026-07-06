@@ -1,4 +1,5 @@
-﻿using AppointmentAPI.Models;
+﻿using AppointmentAPI.DTOs;
+using AppointmentAPI.Models;
 
 namespace AppointmentAPI.Repositories;
 
@@ -12,7 +13,7 @@ public interface IAppointmentRepository
 
     void Delete(Appointment appointment);
 
-    Task<bool> ExistsAsync(int serviceId,DateTime appointmentDate);
+    Task<bool> ExistsAsync(int serviceId, DateTime appointmentDate);
 
     Task<int> GetServiceDurationAsync(int serviceId);
 
@@ -28,6 +29,12 @@ public interface IAppointmentRepository
     );
 
     Task<Appointment?> GetAppointmentWithDoctorAsync(int id);
+
+    Task<List<Appointment>> SearchAppointmentsAsync(
+        AppointmentSearchDto dto,
+        string role,
+        int userId
+    );
 
     Task SaveAsync();
 }

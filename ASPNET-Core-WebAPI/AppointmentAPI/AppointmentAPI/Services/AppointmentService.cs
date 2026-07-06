@@ -169,6 +169,25 @@ public class AppointmentService : IAppointmentService
         };
     }
 
+    public async Task<List<AppointmentDto>> SearchAppointmentsAsync(AppointmentSearchDto dto)
+    {
+        var appointments = await _repository.SearchAppointmentsAsync(
+            dto,
+            _currentUserService.Role,
+            _currentUserService.UserId
+        );
+
+        return appointments.Select(x => new AppointmentDto
+        {
+            Id = x.Id,
+            CustomerName = x.Customer!.Name,
+            ServiceName = x.Service!.Name,
+            AppointmentDate = x.AppointmentDate,
+            DoctorName = x.Doctor?.Name,
+            Status = x.Status
+        }).ToList();
+    }
+
     public async Task<AppointmentDto> ConfirmAppointmentAsync(int id)
     {
         var appointment = await _repository.GetAppointmentWithDoctorAsync(id);
