@@ -918,15 +918,159 @@ Save Availability
 
 ---
 
+---
+
+# Week 4 - Production Backend Development
+
+---
+
+## Day 22 - Appointment Workflow Management ✅
+
+Enhanced AppointmentAPI with structured appointment workflow and business rule validation.
+
+Learned
+
+- Workflow Management
+- State Transition Validation
+- Business Process Enforcement
+- Role-Based Workflow Operations
+
+Implemented
+
+- Appointment Status Constants
+- Appointment Workflow Rules
+- Workflow Validation
+- Doctor Appointment Confirmation
+- Doctor Appointment Completion
+- Patient Appointment Cancellation
+
+### Appointment Workflow
+
+```text
+Booked
+    ↓
+Confirmed
+    ↓
+Completed
+
+Booked
+    ↓
+Cancelled
+
+Confirmed
+    ↓
+Cancelled
+```
+
+### Business Rules
+
+- Doctors can confirm only assigned appointments
+- Doctors can complete only confirmed appointments
+- Patients can cancel only their own appointments
+- Invalid workflow transitions are blocked
+- Completed appointments cannot be modified
+- Cancelled appointments cannot be modified
+
+### Testing Completed
+
+- Appointment Confirmation ✅
+- Appointment Completion ✅
+- Appointment Cancellation ✅
+- Workflow Validation ✅
+- Invalid Transition Validation ✅
+- Swagger Testing ✅
+- Postman Testing ✅
+- SQL Server Verification ✅
+
+### GitHub Workflow Completed
+
+- Created GitHub Issue ✅
+- Developed In Feature Branch ✅
+- Created Pull Request ✅
+- Code Review Completed ✅
+- Merged Into Main ✅
+
+---
+
+## Day 23 - Appointment Search & Filtering ✅
+
+Enhanced AppointmentAPI with flexible appointment search and filtering using role-based access control.
+
+Learned
+
+- Dynamic Query Filtering
+- Optional Query Parameters
+- Role-Based Data Filtering
+- Search API Design
+
+Implemented
+
+- AppointmentSearchDto
+- Dynamic Appointment Search
+- Status Filtering
+- Appointment Date Filtering
+- Doctor Filtering
+- Patient Filtering
+- Service Filtering
+- Combined Search Filters
+
+### Search Flow
+
+```text
+Search Request
+        ↓
+Validate User Role
+        ↓
+Apply Role Filter
+        ↓
+Apply Search Filters
+        ↓
+Return Matching Appointments
+```
+
+### Business Rules
+
+- Patients can search only their own appointments
+- Doctors can search only their assigned appointments
+- Administrators can search all appointments
+- Multiple filters can be combined
+- All search filters are optional
+
+### Testing Completed
+
+- Patient Search ✅
+- Doctor Search ✅
+- Admin Search ✅
+- Status Filtering ✅
+- Date Filtering ✅
+- Doctor Filtering ✅
+- Patient Filtering ✅
+- Service Filtering ✅
+- Combined Filtering ✅
+- Swagger Testing ✅
+- Postman Testing ✅
+- SQL Server Verification ✅
+
+### GitHub Workflow Completed
+
+- Created GitHub Issue ✅
+- Developed In Feature Branch ✅
+- Created Pull Request ✅
+- Code Review Completed ✅
+- Merged Into Main ✅
+
+---
+
 # 🔥 Current Focus
 
-Appointment Workflow 🚀
+Reviews & Ratings 🚀
 
 Learning Next:
-- Appointment Workflow
-- Search & Filtering
 - Reviews & Ratings
 - Dashboard APIs
+- Pagination & Sorting
+- API Versioning
+- Health Checks
 - React Frontend Integration
 
 ---
@@ -982,6 +1126,12 @@ Doctor Assignment Workflow          ✅
 
 Doctor Availability Management      ✅
 Doctor Availability Validation      ✅
+
+Appointment Workflow Management     ✅
+Workflow Validation                 ✅
+
+Appointment Search & Filtering      ✅
+Role-Based Search                   ✅
 
 Professional Workflow
 ────────────────────────
@@ -1067,6 +1217,10 @@ Admin Authorization         ✅
 Doctor Authorization        ✅
 Doctor Availability         ✅
 Availability Validation     ✅
+Appointment Workflow        ✅
+Workflow Validation         ✅
+Appointment Search          ✅
+Search & Filtering          ✅
 
 Professional Workflow
 ──────────────────────────────
@@ -1077,17 +1231,19 @@ Code Reviews                ✅
 
 Current Focus
 ──────────────────────────────
-Appointment Workflow 🚀
+Reviews & Ratings 🚀
 
 Next
 ──────────────────────────────
-Appointment Workflow
-        ↓
-Search & Filtering
-        ↓
 Reviews & Ratings
         ↓
 Dashboard APIs
+        ↓
+Pagination & Sorting
+        ↓
+API Versioning
+        ↓
+Health Checks
         ↓
 React Frontend
         ↓
