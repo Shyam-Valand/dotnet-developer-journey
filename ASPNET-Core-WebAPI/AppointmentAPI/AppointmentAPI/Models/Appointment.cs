@@ -6,13 +6,18 @@ public class Appointment
 
     public int UserId { get; set; }
     public User? User { get; set; }
+
     public int? DoctorId { get; set; }
     public User? Doctor { get; set; }
+
     public int CustomerId { get; set; }
     public Customer? Customer { get; set; }
 
     public int ServiceId { get; set; }
     public Service? Service { get; set; }
+
+    // NEW
+    public Review? Review { get; set; }
 
     public DateTime AppointmentDate { get; set; }
 
