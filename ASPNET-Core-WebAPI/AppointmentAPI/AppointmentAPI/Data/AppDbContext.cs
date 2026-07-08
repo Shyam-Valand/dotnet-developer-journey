@@ -15,6 +15,7 @@ public class AppDbContext : DbContext
     public DbSet<Appointment> Appointments { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<DoctorAvailability> DoctorAvailabilities { get; set; }
+    public DbSet<Review> Reviews { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -46,6 +47,10 @@ public class AppDbContext : DbContext
             .HasForeignKey(x => x.DoctorId)
             .OnDelete(DeleteBehavior.Restrict);
 
-
+        modelBuilder.Entity<Review>()
+            .HasOne(r => r.Appointment)
+            .WithOne(a => a.Review)
+            .HasForeignKey<Review>(r => r.AppointmentId)
+            .OnDelete(DeleteBehavior.Cascade);
     }
 }
