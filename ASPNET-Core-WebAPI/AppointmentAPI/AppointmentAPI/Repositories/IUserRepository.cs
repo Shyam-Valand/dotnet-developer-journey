@@ -8,4 +8,5 @@ public interface IUserRepository
     Task<User?> GetUserWithCustomerAsync(int id);
     Task AddAsync(User user);
     Task<User?> GetByIdAsync(int id);
+    Task<int> CountByRoleAsync(string role);
 }

@@ -33,4 +33,9 @@ public class UserRepository : IUserRepository
     {
         return await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
     }
+
+    public async Task<int> CountByRoleAsync(string role)
+    {
+        return await _context.Users.CountAsync(x => x.Role == role);
+    }
 }

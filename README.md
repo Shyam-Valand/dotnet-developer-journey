@@ -1061,13 +1061,163 @@ Return Matching Appointments
 
 ---
 
+## Day 24 - Doctor Reviews & Ratings ✅
+
+Enhanced AppointmentAPI with a doctor review and rating system using role-based authorization and business rule validation.
+
+Learned
+
+- One-to-One Entity Relationships
+- Review System Design
+- Rating Validation
+- Business Rule Enforcement
+- Review Based Analytics
+
+Implemented
+
+- Review Entity
+- Review Repository
+- Review Service
+- Review Controller
+- Doctor Review API
+- Doctor Average Rating API
+- Review DTOs
+- One-to-One Appointment ↔ Review Relationship
+
+### Review Flow
+
+```text
+Completed Appointment
+        ↓
+Patient Login
+        ↓
+Submit Review
+        ↓
+Validate Ownership
+        ↓
+Validate Completion
+        ↓
+Prevent Duplicate Review
+        ↓
+Save Review
+```
+
+### Business Rules
+
+- Patients can review only completed appointments
+- Patients can review only their own appointments
+- One review is allowed per appointment
+- Rating must be between 1 and 5
+- Doctor average rating is calculated automatically
+
+### Testing Completed
+
+- Review Creation ✅
+- Duplicate Review Prevention ✅
+- Completed Appointment Validation ✅
+- Ownership Validation ✅
+- Rating Validation ✅
+- Doctor Reviews Retrieval ✅
+- Average Rating Calculation ✅
+- Swagger Testing ✅
+- Postman Testing ✅
+- SQL Server Verification ✅
+
+### GitHub Workflow Completed
+
+- Created GitHub Issue ✅
+- Developed In Feature Branch ✅
+- Created Pull Request ✅
+- Code Review Completed ✅
+- Merged Into Main ✅
+
+---
+
+## Day 25 - Dashboard APIs ✅
+
+Enhanced AppointmentAPI with role-based dashboard APIs for administrators, doctors, and patients.
+
+Learned
+
+- Dashboard API Design
+- Aggregate Queries
+- Analytics Endpoints
+- Role-Based Dashboard Data
+- Read-Optimized APIs
+
+Implemented
+
+- Admin Dashboard API
+- Doctor Dashboard API
+- Patient Dashboard API
+- Dashboard DTOs
+- Dashboard Repository
+- Dashboard Service
+- Dashboard Controller
+
+### Dashboard Flow
+
+```text
+User Login
+        ↓
+JWT Authentication
+        ↓
+Identify User Role
+        ↓
+Generate Dashboard Statistics
+        ↓
+Return Dashboard Data
+```
+
+### Dashboard Features
+
+Admin Dashboard
+
+- Total Appointments
+- Completed Appointments
+- Cancelled Appointments
+- Total Doctors
+- Total Patients
+
+Doctor Dashboard
+
+- Total Appointments
+- Completed Appointments
+- Pending Appointments
+- Average Rating
+
+Patient Dashboard
+
+- Total Appointments
+- Completed Appointments
+- Upcoming Appointments
+- Cancelled Appointments
+
+### Testing Completed
+
+- Admin Dashboard ✅
+- Doctor Dashboard ✅
+- Patient Dashboard ✅
+- Authorization Validation ✅
+- Swagger Testing ✅
+- Postman Testing ✅
+- SQL Server Verification ✅
+
+### GitHub Workflow Completed
+
+- Created GitHub Issue ✅
+- Developed In Feature Branch ✅
+- Created Pull Request ✅
+- Code Review Completed ✅
+- Merged Into Main ✅
+
+---
+
 # 🔥 Current Focus
 
-Reviews & Ratings 🚀
+Pagination & Sorting 🚀
 
 Learning Next:
-- Reviews & Ratings
-- Dashboard APIs
 - Pagination & Sorting
 - API Versioning
 - Health Checks
@@ -1132,6 +1282,15 @@ Workflow Validation                 ✅
 
 Appointment Search & Filtering      ✅
 Role-Based Search                   ✅
+
+Doctor Reviews & Ratings            ✅
+Doctor Rating Analytics             ✅
+
+Dashboard APIs                      ✅
+Admin Dashboard                     ✅
+Doctor Dashboard                    ✅
+Patient Dashboard                   ✅
+Dashboard Analytics                 ✅
 
 Professional Workflow
 ────────────────────────
@@ -1221,6 +1380,11 @@ Appointment Workflow        ✅
 Workflow Validation         ✅
 Appointment Search          ✅
 Search & Filtering          ✅
+Doctor Reviews              ✅
+Doctor Ratings              ✅
+Dashboard APIs              ✅
+Role-Based Dashboards       ✅
+Dashboard Analytics         ✅
 
 Professional Workflow
 ──────────────────────────────
@@ -1228,19 +1392,14 @@ GitHub Issues               ✅
 Feature Branch Workflow     ✅
 Pull Requests               ✅
 Code Reviews                ✅
+Squash Merge                ✅
 
 Current Focus
 ──────────────────────────────
-Reviews & Ratings 🚀
+Pagination & Sorting 🚀
 
 Next
 ──────────────────────────────
-Reviews & Ratings
-        ↓
-Dashboard APIs
-        ↓
-Pagination & Sorting
-        ↓
 API Versioning
         ↓
 Health Checks
