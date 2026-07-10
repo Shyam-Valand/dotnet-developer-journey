@@ -116,7 +116,7 @@ public class AppointmentRepository : IAppointmentRepository
             .FirstOrDefaultAsync(a => a.Id == id);
     }
 
-    public async Task<List<Appointment>> SearchAppointmentsAsync(
+    public async Task<PagedResultDto<Appointment>> SearchAppointmentsAsync(
     AppointmentSearchDto dto,
     string role,
     int userId)
@@ -164,7 +164,41 @@ public class AppointmentRepository : IAppointmentRepository
             query = query.Where(x => x.CustomerId == dto.PatientId);
         }
 
-        return await query.ToListAsync();
+        // Validate pagination values
+        var pageNumber = dto.PageNumber <= 0 ? 1 : dto.PageNumber;
+        var pageSize = dto.PageSize <= 0 ? 10 : dto.PageSize;
+
+        // Sorting
+        query = dto.SortBy?.ToLower() switch
+        {
+            "date" or "appointmentdate" => dto.Descending
+                ? query.OrderByDescending(x => x.AppointmentDate)
+                : query.OrderBy(x => x.AppointmentDate),
+
+            "status" => dto.Descending
+                ? query.OrderByDescending(x => x.Status)
+                : query.OrderBy(x => x.Status),
+
+            _ => query.OrderBy(x => x.Id)
+        };
+
+        // Total records
+        var totalRecords = await query.CountAsync();
+
+        // Pagination
+        var items = await query
+            .Skip((pageNumber - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return new PagedResultDto<Appointment>
+        {
+            Items = items,
+            PageNumber = pageNumber,
+            PageSize = pageSize,
+            TotalRecords = totalRecords,
+            TotalPages = (int)Math.Ceiling(totalRecords / (double)pageSize)
+        };
     }
 
     public async Task SaveAsync()

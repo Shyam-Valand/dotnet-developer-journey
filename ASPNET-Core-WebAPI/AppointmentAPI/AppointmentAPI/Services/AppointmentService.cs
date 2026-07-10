@@ -155,7 +155,7 @@ public class AppointmentService : IAppointmentService
             );
         }
         appointment.AppointmentDate = dto.AppointmentDate;
-       
+
         await _repository.SaveAsync();
 
         return new AppointmentDto
@@ -169,23 +169,30 @@ public class AppointmentService : IAppointmentService
         };
     }
 
-    public async Task<List<AppointmentDto>> SearchAppointmentsAsync(AppointmentSearchDto dto)
+    public async Task<PagedResultDto<AppointmentDto>> SearchAppointmentsAsync(AppointmentSearchDto dto)
     {
-        var appointments = await _repository.SearchAppointmentsAsync(
+        var pagedAppointments = await _repository.SearchAppointmentsAsync(
             dto,
             _currentUserService.Role,
-            _currentUserService.UserId
-        );
+            _currentUserService.UserId);
 
-        return appointments.Select(x => new AppointmentDto
+        return new PagedResultDto<AppointmentDto>
         {
-            Id = x.Id,
-            CustomerName = x.Customer!.Name,
-            ServiceName = x.Service!.Name,
-            AppointmentDate = x.AppointmentDate,
-            DoctorName = x.Doctor?.Name,
-            Status = x.Status
-        }).ToList();
+            Items = pagedAppointments.Items.Select(x => new AppointmentDto
+            {
+                Id = x.Id,
+                CustomerName = x.Customer!.Name,
+                ServiceName = x.Service!.Name,
+                AppointmentDate = x.AppointmentDate,
+                DoctorName = x.Doctor?.Name,
+                Status = x.Status
+            }).ToList(),
+
+            PageNumber = pagedAppointments.PageNumber,
+            PageSize = pagedAppointments.PageSize,
+            TotalRecords = pagedAppointments.TotalRecords,
+            TotalPages = pagedAppointments.TotalPages
+        };
     }
 
     public async Task<AppointmentDto> ConfirmAppointmentAsync(int id)

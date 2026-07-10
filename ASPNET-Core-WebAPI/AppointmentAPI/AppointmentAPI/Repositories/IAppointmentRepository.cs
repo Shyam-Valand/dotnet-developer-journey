@@ -30,11 +30,7 @@ public interface IAppointmentRepository
 
     Task<Appointment?> GetAppointmentWithDoctorAsync(int id);
 
-    Task<List<Appointment>> SearchAppointmentsAsync(
-        AppointmentSearchDto dto,
-        string role,
-        int userId
-    );
+    Task<PagedResultDto<Appointment>> SearchAppointmentsAsync(AppointmentSearchDto dto,string role,int userId);
 
     Task SaveAsync();
 }

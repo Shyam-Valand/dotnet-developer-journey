@@ -1,6 +1,6 @@
 ﻿namespace AppointmentAPI.DTOs;
 
-public class AppointmentSearchDto
+public class AppointmentSearchDto : PaginationDto
 {
     public string? Status { get; set; }
     public DateTime? AppointmentDate { get; set; }
