@@ -60,7 +60,7 @@ public class AppointmentsController : ControllerBase
         var appointments = await _appointmentService.SearchAppointmentsAsync(dto);
 
         return Ok(
-            new ApiResponse<List<AppointmentDto>>
+            new ApiResponse<PagedResultDto<AppointmentDto>>
             (
                 true,
                 "Appointments retrieved successfully.",

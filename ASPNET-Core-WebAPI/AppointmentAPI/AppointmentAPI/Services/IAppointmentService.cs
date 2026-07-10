@@ -19,7 +19,7 @@ public interface IAppointmentService
 
     Task<List<AppointmentDto>> GetDoctorAppointmentsAsync();
 
-    Task<List<AppointmentDto>> SearchAppointmentsAsync(AppointmentSearchDto dto);
+    Task<PagedResultDto<AppointmentDto>> SearchAppointmentsAsync(AppointmentSearchDto dto);
 
     Task<AppointmentDto> ConfirmAppointmentAsync(int id);
 
