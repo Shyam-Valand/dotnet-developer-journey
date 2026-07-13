@@ -1,12 +1,14 @@
 ﻿using AppointmentAPI.DTOs;
 using AppointmentAPI.Services;
+using Asp.Versioning;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppointmentAPI.Controllers;
 
-[Authorize(Roles = "Doctor")]
-[Route("api/[controller]")]
+[ApiVersion("1.0")]
+[Authorize]
+[Route("api/v{version:apiVersion}/[controller]")]
 [ApiController]
 public class DoctorAvailabilityController : ControllerBase
 {

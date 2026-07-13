@@ -45,7 +45,7 @@ public class DashboardRepository : IDashboardRepository
             TotalAppointments = await _context.Appointments.CountAsync(x => x.UserId == userId),
             CompletedAppointments = await _context.Appointments.CountAsync(x => x.UserId == userId && x.Status == "Completed"),
             UpcomingAppointments = await _context.Appointments.CountAsync(x => x.UserId == userId && x.Status == "Booked"),
-            CancelledAppintments = await _context.Appointments.CountAsync(x => x.UserId == userId && x.Status == "Cancelled")
+            CancelledAppointments = await _context.Appointments.CountAsync(x => x.UserId == userId && x.Status == "Cancelled")
         };
     }
 }

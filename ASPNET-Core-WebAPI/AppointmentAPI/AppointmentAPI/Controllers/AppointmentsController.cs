@@ -1,12 +1,15 @@
 ﻿using AppointmentAPI.DTOs;
 using AppointmentAPI.Services;
+using Asp.Versioning;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 
+
 namespace AppointmentAPI.Controllers;
 
+[ApiVersion("1.0")]
 [Authorize]
-[Route("api/[controller]")]
+[Route("api/v{version:apiVersion}/[controller]")]
 [ApiController]
 public class AppointmentsController : ControllerBase
 {
