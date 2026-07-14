@@ -19,6 +19,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection")
     )
 );
+// Register Health Checks
+builder.Services.AddHealthChecks().AddDbContextCheck<AppDbContext>("Database");
 
 // Register Application Services
 builder.Services.AddScoped<IAppointmentService, AppointmentService>();
@@ -150,4 +152,5 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.MapHealthChecks("/health");
 app.Run();
