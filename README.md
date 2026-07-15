@@ -4,6 +4,10 @@ Building enterprise-ready backend applications through daily hands-on developmen
 
 Daily progress log of my journey toward becoming a Full-Stack .NET Developer.
 
+> 🎉 **Learning Repository Status:** Completed (Day 0 – Day 28)
+
+This repository documents my structured journey learning enterprise .NET backend development. Future production work will continue in a dedicated portfolio repository.
+
 Building practical applications using:
 
 C# • ASP.NET Core Web API • Entity Framework Core • SQL Server • React • TypeScript • Azure • Docker
@@ -19,7 +23,7 @@ C# • ASP.NET Core Web API • Entity Framework Core • SQL Server • React �
 
 ---
 
-# 🎯 Target Role
+## 🎯 Target Role
 
 Full-Stack .NET Developer
 
@@ -1283,14 +1287,130 @@ Return Paged Result
 
 ---
 
+## Day 27 - API Versioning ✅
+
+Enhanced AppointmentAPI with API Versioning to support future API evolution while maintaining backward compatibility.
+
+Learned
+
+- API Versioning
+- Versioned Routes
+- URL-Based Versioning
+- Default API Version
+- API Version Reporting
+
+Implemented
+
+- ASP.Versioning.Mvc
+- ASP.Versioning.Mvc.ApiExplorer
+- API Version Configuration
+- Versioned Controllers
+- Versioned Routes
+- API Version Reporting
+
+### Versioning Flow
+
+```text
+Client Request
+        ↓
+Read API Version
+        ↓
+Route To Versioned Controller
+        ↓
+Execute Endpoint
+        ↓
+Return Response
+```
+
+### Features
+
+- Default API Version (v1.0)
+- URL-Based Versioning
+- Versioned Controller Support
+- Automatic API Version Reporting
+
+### Testing Completed
+
+- API Version Configuration ✅
+- Versioned Routes ✅
+- Swagger Testing ✅
+- Postman Testing ✅
+
+### GitHub Workflow Completed
+
+- Created GitHub Issue ✅
+- Developed In Feature Branch ✅
+- Created Pull Request ✅
+- Code Review Completed ✅
+- Merged Into Main ✅
+
+---
+
+## Day 28 - Health Checks ✅
+
+Enhanced AppointmentAPI with Health Checks to monitor application and database health for production readiness.
+
+Learned
+
+- ASP.NET Core Health Checks
+- Health Monitoring
+- Database Health Validation
+- Production Monitoring
+
+Implemented
+
+- Health Checks Package
+- SQL Server Health Check
+- Health Check Registration
+- /health Endpoint
+
+### Health Check Flow
+
+```text
+Health Request
+        ↓
+Run Health Checks
+        ↓
+Validate Database
+        ↓
+Return Health Status
+```
+
+### Features
+
+- Application Health Monitoring
+- Database Connectivity Validation
+- Health Endpoint
+
+### Testing Completed
+
+- Project Build ✅
+- Health Endpoint Testing ✅
+- Healthy Status Response ✅
+- Swagger Testing ✅
+- Postman Testing ✅
+
+### GitHub Workflow Completed
+
+- Created GitHub Issue ✅
+- Developed In Feature Branch ✅
+- Created Pull Request ✅
+- Code Review Completed ✅
+- Merged Into Main ✅
+
+---
+
 # 🔥 Current Focus
 
-API Versioning 🚀
+✅ Learning Repository Completed
 
-Learning Next:
-- Health Checks
+Next:
+
+- Healthcare Appointment Management System (New Repository)
 - React Frontend Integration
-- Docker & Azure Deployment
+- Docker
+- Azure
+- CI/CD
 
 ---
 
@@ -1298,7 +1418,7 @@ Learning Next:
 
 ## Healthcare Appointment Booking Platform 🚀
 
-Current Enterprise Project
+Completed Learning Project
 
 ```text
 Completed:
@@ -1364,6 +1484,9 @@ Dashboard Analytics                 ✅
 Pagination & Sorting                ✅
 Pagination Metadata                 ✅
 
+API Versioning                      ✅
+Health Checks                       ✅
+
 Professional Workflow
 ────────────────────────
 GitHub Issue Workflow        ✅
@@ -1428,6 +1551,8 @@ Repository Pattern          ✅
 Async Programming           ✅
 Global Exception Handling   ✅
 API Response Wrapper        ✅
+API Versioning              ✅
+Health Checks               ✅
 
 Authentication & Security
 ──────────────────────────────
@@ -1469,11 +1594,11 @@ Squash Merge                ✅
 
 Current Focus
 ──────────────────────────────
-API Versioning 🚀
+Learning Repository Completed ✅
 
 Next
 ──────────────────────────────
-Health Checks
+Healthcare Appointment Management
         ↓
 React Frontend
         ↓
@@ -1482,11 +1607,13 @@ Testing
 Docker
         ↓
 Azure Deployment
+        ↓
+CI/CD
 
 ---
 
 # Learning Journey
 
 ```text
-Learn → Build → Test → Refactor → Improve → Deploy 🚀
+Learn → Build → Test → Refactor → Review → Deploy 🚀
 ```
